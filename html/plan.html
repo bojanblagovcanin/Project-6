@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project Plan - Group 3</title>
+</head>
+<body>
+    <h1 id="pplan">Project Plan - Group 3</h1>
+    <h2 id="pweek1+2">Week 1+2:</h2>
+    <ol>
+        <li>All: Complete and Submit a Project Plan</li>
+        <li>Selman: Setup Raspberry Pi as a server</li>
+        <li>Foster: STM32 Programming via HAL (explain protocol, properly set filters, etc)</li>
+        <li>Bojan: Work on GUI and websites, working on the front end of the project</li>
+        <li>Selman: Complete Wiring Diagram and add self part of logbook</li>
+        <li>Foster: Add own parts into the logbook</li>
+        <li>Bojan: Website control of the Elevator</li>
+    </ol>
+
+    <h2 id="prest">Week 3-14:</h2>
+    <ol>
+        <li>All: Ideas for Capstone, Final Presentation and Demo
+            CAN Messages result in changes to database and GUI/Indicators
+            Commands from CAN/LAN networks are sent to the controller and move the elevator / indicate floor number
+        </li>
+        <li>Selman: User Interface, action buttons/icons, 
+            Indicators/lights etc. implemented
+            User action buttons developed to make changes to UI that are reflected in the database
+            User indicator buttons change - changes in database are reflected in UI
+            Users are authorized/authenticated based on username/password  
+            Server program provides logging data/accepts commands only from authorized users
+        </li>
+        <li>Bojan: User action buttons/icons implemented
+            Indicators/lights etc. implemented
+            User action buttons developed to make changes to UI that are reflected in the database
+            User indicator buttons change - changes in database are reflected in UI
+            Database set up and accepting values/commands from website
+            Database has fields for logging information placed on the CAN bus
+            Produced based on content in database 
+            Users may operate the elevator without having to push buttons (e.g. verbally, based on schedule/time) 
+            Research and Implement a CAN/LAN communication bridge
+            Ensure activity in CAN network changes values in database
+            Changes in User Interface/Website changes value in database and generate CAN messages
+            CAN Supervisor (Raspberry Pi) relays messages between CAN/LAN Network (see sample program on Rpi)
+        </li>
+        <li>Foster: Displayed on webpage
+            Implement a Server Program for announcing the floor numbers
+            Speaker on elevator used to announce the current/next floor (speaker already connected to system)
+            Research and Implement a CAN/LAN communication bridge
+            Ensure activity in CAN network changes values in database
+            CAN Supervisor (Raspberry Pi) relays messages between CAN/LAN Network (see sample program on Rpi)
+            Additional capability that shows ingenuity
+        </li>
+
+    </ol>
+</body>
+</html>
