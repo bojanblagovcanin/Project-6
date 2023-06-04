@@ -57,13 +57,13 @@ function easeInOutQuad(t, b, c, d) {
     return -c / 2 * (t * (t - 2) - 1) + b;
 }
 
-function moveUp() {
+function moveDown() {
     if (currentFloor < 3) {
         goToFloor(currentFloor + 1);
     }
 }
 
-function moveDown() {
+function moveUp() {
     if (currentFloor > 1) {
         goToFloor(currentFloor - 1);
     }
