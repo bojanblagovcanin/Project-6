@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Elevator Simulator</h1>
+        <h1>Elevator Simulator :)</h1>
         <!-- Login -->
         <div id="login-form">
             <input type="text" id="username" placeholder="Username">
@@ -16,13 +16,13 @@
 
         <div id="elevator-container" style="display: none;">
             <div id="floor">Floor: 1</div>
-            <div id="elevator"></div>
+            <img id="elevator" src="../../images/Elevator.png" class="rotate"></img>
             <button class="floor-button" id="floor1" onclick="goToFloor(1)">Floor 1</button>
             <button class="floor-button" id="floor2" onclick="goToFloor(2)">Floor 2</button>
             <button class="floor-button" id="floor3" onclick="goToFloor(3)">Floor 3</button>
             <div id="inside-panel">
-                <button onclick="moveUp()">Down</button>
-                <button onclick="moveDown()">Up</button>
+                <img id="UpArrow" onclick="moveUp()" src="../../images/ArrowDown.png" width="50" height="50"></img>
+                <img id="DownArrow" onclick="moveDown()" src="../../images/ArrowUp.png" width="50" height="50"></img>
         </div>
     </div>
 

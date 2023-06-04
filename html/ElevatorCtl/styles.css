@@ -37,7 +37,7 @@
     position: absolute;
     left: 55%;
     top: 400px;
-    transform: translateX(-50%);
+    transform: translateX(-10%);
 }
 
 #inside-panel {
@@ -49,4 +49,12 @@
 
 #inside-panel button {
     margin: 5px;
+}
+
+.rotate {
+    transform: rotate(180);
+}
+
+#DownArrow {
+    transform: rotate(180);
 }
