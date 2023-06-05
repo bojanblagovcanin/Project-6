@@ -23,14 +23,17 @@ function login() {
 }
 
 function goToFloor(floor) {
-    var targetFloorPosition = (floor - 1) * floorHeight;
-    var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
-    var distance = Math.abs(currentPosition - targetFloorPosition);
-    var duration = distance * 1; // Adjust the duration as desired
+    if (doorDisplay.innerText != "Door Status: Open")
+    {
+        var targetFloorPosition = (floor - 1) * floorHeight;
+        var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
+        var distance = Math.abs(currentPosition - targetFloorPosition);
+        var duration = distance * 1; // Adjust the duration as desired
 
-    animateElevator(currentPosition, targetFloorPosition, duration);
-    floorDisplay.innerText = "Floor: " + floor;
-    currentFloor = floor;
+        animateElevator(currentPosition, targetFloorPosition, duration);
+        floorDisplay.innerText = "Floor: " + floor;
+        currentFloor = floor;
+    }
 }
 
 //Elevator Door Animation
