@@ -73,13 +73,13 @@ function easeInOutQuad(t, b, c, d) {
 }
 
 function moveDown() {
-    if (currentFloor < 3) {
+    if (currentFloor < 3 && doorDisplay.innerText != "Door Status: Open") {
         goToFloor(currentFloor + 1);
     }
 }
 
 function moveUp() {
-    if (currentFloor > 1) {
+    if (currentFloor > 1 && doorDisplay.innerText != "Door Status: Open") {
         goToFloor(currentFloor - 1);
     }
 }
