@@ -1,5 +1,6 @@
 var elevator = document.getElementById("elevator");
 var floorDisplay = document.getElementById("floor");
+var doorDisplay = document.getElementById("door")
 var loginForm = document.getElementById("login-form");
 var elevatorContainer = document.getElementById("elevator-container");
 
@@ -22,16 +23,33 @@ function login() {
 }
 
 function goToFloor(floor) {
-    var targetFloorPosition = (floor - 1) * floorHeight;
-    var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
-    var distance = Math.abs(currentPosition - targetFloorPosition);
-    var duration = distance * 1; // Adjust the duration as desired
+    if (doorDisplay.innerText != "Door Status: Open")
+    {
+        var targetFloorPosition = (floor - 1) * floorHeight;
+        var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
+        var distance = Math.abs(currentPosition - targetFloorPosition);
+        var duration = distance * 1; // Adjust the duration as desired
 
-    animateElevator(currentPosition, targetFloorPosition, duration);
-    floorDisplay.innerText = "Floor: " + floor;
-    currentFloor = floor;
+        animateElevator(currentPosition, targetFloorPosition, duration);
+        floorDisplay.innerText = "Floor: " + floor;
+        currentFloor = floor;
+    }
 }
 
+//Elevator Door Animation
+function openDoor()
+{
+    doorDisplay.innerText = "Door Status: Open";
+}
+
+function closeDoor()
+{
+    doorDisplay.innerText = "Door Status: Closed";
+}
+
+
+
+//Elevator Movement animation
 function animateElevator(start, target, duration) {
     var startTime = null;
 
@@ -58,13 +76,13 @@ function easeInOutQuad(t, b, c, d) {
 }
 
 function moveDown() {
-    if (currentFloor < 3) {
+    if (currentFloor < 3 && doorDisplay.innerText != "Door Status: Open") {
         goToFloor(currentFloor + 1);
     }
 }
 
 function moveUp() {
-    if (currentFloor > 1) {
+    if (currentFloor > 1 && doorDisplay.innerText != "Door Status: Open") {
         goToFloor(currentFloor - 1);
     }
 }

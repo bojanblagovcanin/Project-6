@@ -29,21 +29,64 @@ body {
 #floor1 {
     position: absolute;
     left: 55%;
-    top: 200px;
+    top: 250px;
     transform: translateX(-50%);
 }
+#floor1-open
+{
+    position: absolute;
+    left: 59%;
+    top: 250px;
+    transform: translateX(-50%);
+}
+#floor1-close
+{
+    position: absolute;
+    left: 62%;
+    top: 250px;
+    transform: translateX(-50%);
+}
+
 
 #floor2 {
     position: absolute;
     left: 55%;
-    top: 300px;
+    top: 350px;
+    transform: translateX(-50%);
+}
+#floor2-open
+{
+    position: absolute;
+    left: 59%;
+    top: 350px;
+    transform: translateX(-50%);
+}
+#floor2-close
+{
+    position: absolute;
+    left: 62%;
+    top: 350px;
     transform: translateX(-50%);
 }
 
 #floor3 {
     position: absolute;
     left: 55%;
-    top: 400px;
+    top: 450px;
+    transform: translateX(-50%);
+}
+#floor3-open
+{
+    position: absolute;
+    left: 59%;
+    top: 450px;
+    transform: translateX(-50%);
+}
+#floor3-close
+{
+    position: absolute;
+    left: 62%;
+    top: 450px;
     transform: translateX(-50%);
 }
 

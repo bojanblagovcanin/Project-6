@@ -18,13 +18,27 @@
         <!-- Elevator Control -->
         <div id="elevator-container" style="display: none;">
             <div id="floor">Floor: 1</div>
+            <div id="door">Door Status: Closed</div>
+            <br>
             <img id="elevator" src="../images/Elevator.png"></img>
-            <button class="floor-button" id="floor1" onclick="goToFloor(1)">Floor 1</button>
-            <button class="floor-button" id="floor2" onclick="goToFloor(2)">Floor 2</button>
-            <button class="floor-button" id="floor3" onclick="goToFloor(3)">Floor 3</button>
+            <button class="floor1-button" id="floor1" onclick="goToFloor(1)">Floor 1</button>
+            <button class="floor1-button" id="floor1-open" onclick="openDoor()">Open</button>
+            <button class="floor1-button" id="floor1-close" onclick="closeDoor()">Close</button>
+
+            <button class="floor2-button" id="floor2" onclick="goToFloor(2)">Floor 2</button>
+            <button class="floor2-button" id="floor2-open" onclick="openDoor()">Open</button>
+            <button class="floor2-button" id="floor2-close" onclick="closeDoor()">Close</button>
+
+            <button class="floor2-button" id="floor3" onclick="goToFloor(3)">Floor 3</button>
+            <button class="floor3-button" id="floor3-open" onclick="openDoor()">Open</button>
+            <button class="floor3-button" id="floor3-close" onclick="closeDoor()">Close</button>
+            
             <div id="inside-panel">
                 <img id="UpArrow" onclick="moveUp()" src="../images/ArrowUp.png" width="75" height="75"></img>
                 <img id="DownArrow" onclick="moveDown()" src="../images/ArrowDown.png" width="75" height="75"></img>
+                <br>
+                <button class="open-button" id="inside-open" onclick="openDoor()">Open Door</button>
+                <button class="close-button" id="inside-close" onclick="closeDoor()">Close Door</button>
         </div>
     </div>
 
