@@ -32,6 +32,9 @@ function goToFloor(floor) {
     currentFloor = floor;
 }
 
+//Elevator Door Animation
+
+//Elevator Movement animation
 function animateElevator(start, target, duration) {
     var startTime = null;
 
