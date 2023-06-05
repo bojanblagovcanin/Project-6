@@ -1,5 +1,6 @@
 var elevator = document.getElementById("elevator");
 var floorDisplay = document.getElementById("floor");
+var doorDisplay = document.getElementById("door")
 var loginForm = document.getElementById("login-form");
 var elevatorContainer = document.getElementById("elevator-container");
 
@@ -33,6 +34,17 @@ function goToFloor(floor) {
 }
 
 //Elevator Door Animation
+function openDoor()
+{
+    doorDisplay.innerText = "Door Status: Open";
+}
+
+function closeDoor()
+{
+    doorDisplay.innerText = "Door Status: Closed";
+}
+
+
 
 //Elevator Movement animation
 function animateElevator(start, target, duration) {

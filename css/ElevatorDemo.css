@@ -29,21 +29,21 @@ body {
 #floor1 {
     position: absolute;
     left: 55%;
-    top: 200px;
+    top: 250px;
     transform: translateX(-50%);
 }
 
 #floor2 {
     position: absolute;
     left: 55%;
-    top: 300px;
+    top: 350px;
     transform: translateX(-50%);
 }
 
 #floor3 {
     position: absolute;
     left: 55%;
-    top: 400px;
+    top: 450px;
     transform: translateX(-50%);
 }
 
