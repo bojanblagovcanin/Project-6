@@ -1,0 +1,59 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #687871;
+}
+
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+.floor-button{
+    margin: 5px;
+}
+#floor {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#elevator {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    background-color: blue;
+    margin: 0 auto;
+    transition: top 0.5s;
+}
+
+#floor1 {
+    position: absolute;
+    left: 55%;
+    top: 200px;
+    transform: translateX(-50%);
+}
+
+#floor2 {
+    position: absolute;
+    left: 55%;
+    top: 300px;
+    transform: translateX(-50%);
+}
+
+#floor3 {
+    position: absolute;
+    left: 55%;
+    top: 400px;
+    transform: translateX(-50%);
+}
+
+#inside-panel {
+    position: absolute;
+    left: 40%;
+    top: 100;
+    transform: translateX(-50%);
+}
+
+#inside-panel button {
+    margin: 5px;
+}
