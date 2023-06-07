@@ -21,7 +21,7 @@ body {
     position: relative;
     width: 75px;
     height: 75px;
-    background-color: blue;
+    background-color: rgba(0,0,0,0);
     margin: 0 auto;
     transition: top 0.5s;
 }

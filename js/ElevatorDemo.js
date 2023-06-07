@@ -1,6 +1,7 @@
 var elevator = document.getElementById("elevator");
 var floorDisplay = document.getElementById("floor");
-var doorDisplay = document.getElementById("door")
+var doorDisplay = document.getElementById("door");
+var elevDisplay = document.getElementById("elevator");
 var loginForm = document.getElementById("login-form");
 var elevatorContainer = document.getElementById("elevator-container");
 
@@ -40,11 +41,13 @@ function goToFloor(floor) {
 function openDoor()
 {
     doorDisplay.innerText = "Door Status: Open";
+    elevDisplay.src = "../images/OpenElevator.png";
 }
 
 function closeDoor()
 {
     doorDisplay.innerText = "Door Status: Closed";
+    elevDisplay.src = "../images/Elevator.png";
 }
 
 
