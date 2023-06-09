@@ -22,7 +22,9 @@
     <u1>
         <p>Click <a href="ElevatorDemo.html">here</a> for Elevator Control</p>
     </u1>
-
+    <u1>
+        <p>Click <a href ="proj_details.html">here</a> for more Project Details.</p>
+    </u1>
 
     <hr>
 
@@ -81,5 +83,16 @@
     
     <a href="#">Go to Top of Page</a>
 
+    <p id="datetime"></p>
+    <script>
+        function updateDateTime() {
+          var dateTime = new Date();
+          var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+          var formattedDateTime = dateTime.toLocaleDateString(undefined, options);
+          document.getElementById("datetime").textContent = formattedDateTime;
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+      </script>
 </body>
 </html>

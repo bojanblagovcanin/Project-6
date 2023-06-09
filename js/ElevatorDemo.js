@@ -11,10 +11,9 @@ var floorHeight = 100;
 function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-
+    username.focus();
     // Perform login authentication here
     // For simplicity, let's assume username: "admin" and password: "password"
-
     if (username === "admin" && password === "password") {
         loginForm.style.display = "none";
         elevatorContainer.style.display = "block";

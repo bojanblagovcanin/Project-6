@@ -13,9 +13,15 @@ body {
   transition: background 0.2s linear;
 }
 
+h1 {
+    font-family: "Arial", sans-serif;
+    padding: 10px; background-color: #800000;
+    color: #fff;
+}
+
 body.dark {background-color: #292c35;} /* #9b59b6 */
 
-body.dark h1, body.dark h2, body.dark li, .support a {color: #fff;}
+body.dark, body.dark h2, body.dark li, .support a {color: #fff;}
 
 .checkbox {
   opacity: 0;

@@ -1,0 +1,54 @@
+body {font-family: Georgia, serif;
+      justify-content: center;
+      align-items: center;}
+
+p, ul, ol {font-size: 100%;
+           line-height: 20px;
+           text-align: justify;}
+
+p {text-indent: 15px;}
+
+h1 {font-size: 160%;}
+h2 {font-size: 125%;}
+
+img {height: 300px;}
+
+figcaption {text-align: center;
+            font-style: italic;
+            font-size: 90%;}
+
+
+.mkbold {font-weight: bold;
+         color: rgb(140, 0, 255); }
+       
+.mkunderlined {text-decoration: underline;
+               color: rgb(140, 0, 255); }
+
+body { width: 950px;
+    padding: 0px 10px 0px 10px;
+    margin: 0px auto 0px auto;
+    border: 2px solid black;}
+
+img {height: 300px;
+        display: block;  
+        margin: 0px auto 0px auto;
+        border: 2px solid blue;
+        box-shadow: 10px 10px 5px gray;
+        
+        }
+
+figure {
+        padding: 0px auto 0px auto;
+        border: 2px solid green;
+        border-radius: 25px;
+        }
+        
+#hcs12 { font-weight: bold;
+         color: rgb(255, 0, 43);}
+            
+#can { font-weight: bold;
+       color: rgb(255, 0, 43);}
+            
+#buttons { font-weight: bold;
+           color: rgb(255, 0, 43);  }
+

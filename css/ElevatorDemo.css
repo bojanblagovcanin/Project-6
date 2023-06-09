@@ -5,6 +5,7 @@ body {
     background-color: #687871;
 }
 
+
 .container {
     text-align: center;
     margin-top: 100px;
@@ -100,3 +101,4 @@ body {
 #inside-panel button {
     margin: 5px;
 }
+
