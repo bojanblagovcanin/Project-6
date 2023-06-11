@@ -9,9 +9,10 @@ var currentFloor = 1;
 var floorHeight = 100;
 
 function login() {
-    var username = document.getElementById("username").value;
+    var usernameField = document.getElementById("username");
+    var username = usernameField.value;
     var password = document.getElementById("password").value;
-    //username.focus();
+    usernameField.focus();
 
     if (!checkULen(username))
     {
