@@ -3,36 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Form: Request Access</title>
-    <!--<meta name="Group 3" content="RequestAccess" http-equiv="pragma" content="no-cache">-->
+    <meta name="Group 3" content="RequestAccess" http-equiv="pragma" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../css/reqaccess.css">
 </head>
 <body>
     <h1>Sign-up Page</h1>
-   <!-- <form> action="php/req_access.php" method="post">-->
+    <form action="../php/process_form.php" method="post">
         <fieldset>
             <legend>Contact Details</legend>
             <div>
-                <label for="fname" class="text_label" >First Name:</label>
-                <input id="fname" class="text_input" type="text" name="firstname"  /> 
+                <label for="fname" class="text_label">First Name:</label>
+                <input id="fname" class="text_input" type="text" name="firstname" required/> 
             </div>
             <div>
                 <label for="lname" class="text_label">Last Name:</label>  
-                <input id="lname" class="text_input" type="text" name="lastname"  /> 
+                <input id="lname" class="text_input" type="text" name="lastname" required/> 
+            </div>
+            <div>
+                <label for="username" class="text_label">Username:</label>  
+                <input id="username" class="text_input" type="text" name="username" required/> 
+            </div>
+            <div>
+                <label for="password" class="text_label">Password:</label>  
+                <input id="password" class="text_input" type="text" name="password" required/> 
             </div>
             <div>
                 <label for="email" class="text_label">Email:</label>     
-                <input id="email" class="text_input" type="email" name="email" /> 
+                <input id="email" class="text_input" type="email" name="email" required/> 
             </div>
             <div>
                 <label for="bdate" class="text_label">Date of Birth:</label> 
-                <input id="bdate" class="text_input" type="date" name="birthday" /> 
+                <input id="bdate" class="text_input" type="date" name="birthday" required/> 
             </div>
             
             <div>
                 <span class="text_label">Request type:</span>
-                <input id="faculty" type="radio" name="fac_or_student" value="faculty" /> 
+                <input id="faculty" type="radio" name="fac_or_student" value="faculty" required/> 
                 <label for="faculty">Faculty</label>
-                <input id="student" type="radio" name="fac_or_student" value="student" /> 
+                <input id="student" type="radio" name="fac_or_student" value="student" required/> 
                 <label for="student">Student</label>
             </div>
         </fieldset>
@@ -40,13 +48,13 @@
         <div>
             <p id="feedback"></p>
             <p>Tell us a bit about yourself</p>
-            <textarea name="comments" class="text">Please enter your comments here ...</textarea><br />
-            <input id="submit" onclick="testFill()" type="submit" value="Submit Request" />
+            <textarea name="comments" class="text" required>Please enter your comments here ...</textarea><br />
+            <input id="submit" type="submit" value="Submit Request" />
         </div>
-        <script src="../js/requestaccess.js"></script>
-    <!--</form>-->
+    </form>
+    <script src="../js/requestaccess.js"></script>
 </body>
 <footer>
-    <p>Copyright &copy; Group 3. 2023</p>
+    <p>&copy; Group 3. 2023</p>
 </footer>
 </html>
