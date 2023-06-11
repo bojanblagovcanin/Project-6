@@ -8,12 +8,15 @@ var elevatorContainer = document.getElementById("elevator-container");
 var currentFloor = 1;
 var floorHeight = 100;
 
-function login() {
+function onLoad()
+{
     var usernameField = document.getElementById("username");
-    var username = usernameField.value;
-    var password = document.getElementById("password").value;
     usernameField.focus();
+}
 
+function login() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
     if (!checkULen(username))
     {
         return false;
@@ -129,3 +132,5 @@ function moveUp() {
         goToFloor(currentFloor - 1);
     }
 }
+
+window.addEventListener('load',onLoad, false);
