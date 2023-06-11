@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Form: Request Access</title>
-    <meta name="Group 3" content="RequestAccess" http-equiv="pragma" content="no-cache">
+    <!--<meta name="Group 3" content="RequestAccess" http-equiv="pragma" content="no-cache">-->
     <link rel="stylesheet" type="text/css" href="../css/reqaccess.css">
 </head>
 <body>
     <h1>Sign-up Page</h1>
-    <form action="php/req_access.php" method="post">
+    
         <fieldset>
             <legend>Contact Details</legend>
             <div>
@@ -33,16 +33,18 @@
                 <input id="faculty" type="radio" name="fac_or_student" value="faculty" /> 
                 <label for="faculty">Faculty</label>
                 <input id="student" type="radio" name="fac_or_student" value="student" /> 
-                <label for="student">Student</label><br />
+                <label for="student">Student</label>
             </div>
         </fieldset>
 
         <div>
+            <p id="feedback"></p>
             <p>Tell us a bit about yourself</p>
             <textarea name="comments" class="text">Please enter your comments here ...</textarea><br />
-            <input id="submit" type="submit" value="Submit Request" />
+            <input id="submit" onclick="testFill()" type="submit" value="Submit Request" />
         </div>
-        <script src="requestaccess.js"></script>
+        <script src="../js/requestaccess.js"></script>
+    
 </body>
 <footer>
     <p>Copyright &copy; Group 3. 2023</p>
