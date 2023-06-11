@@ -11,14 +11,54 @@ var floorHeight = 100;
 function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    username.focus();
-    // Perform login authentication here
-    // For simplicity, let's assume username: "admin" and password: "password"
-    if (username === "admin" && password === "password") {
-        loginForm.style.display = "none";
-        elevatorContainer.style.display = "block";
-    } else {
-        alert("Invalid username or password");
+    //username.focus();
+
+    if (!checkULen(username))
+    {
+        return false;
+    }
+    else if (!checkPLen(password))
+    { 
+        return false;
+    }
+    else 
+    {
+
+        checkPLen(password);
+        // Perform login authentication here
+        // For simplicity, let's assume username: "admin" and password: "password"
+        if (username === "admin123" && password === "password") {
+            loginForm.style.display = "none";
+            elevatorContainer.style.display = "block";
+        } else {
+            alert("Invalid username or password");
+        }
+    }
+}
+
+function checkULen(uname)
+{
+    if (uname.length < 7)
+    {
+        alert("Username too short");
+        return false;
+    }
+    else 
+    {
+        return true;
+    }
+}
+
+function checkPLen(pword)
+{
+    if (pword.length < 7)
+    {
+        alert("Password too short");
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }
 
