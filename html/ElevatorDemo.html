@@ -9,12 +9,17 @@
 <body>
     <div class="container">
         <h1>Elevator Simulator</h1>
+        <form action="../php/login_data.php" method="post"></form>
         <!-- Login -->
         <div id="login-form">
             <input type="text" id="username" placeholder="Username">
             <input type="password" id="password" placeholder="Password">
             <button onclick="login()">Login</button>
-            <li><a href = "request_access.html" class="request-button"><img src="../images/requestaccess.png" alt="Request Access"></a></li>
+            <li>
+                <a href="request_access.html" class="request-button">
+                  <img src="../images/requestaccess.png" alt="Request Access" class="hover-image active-image">
+                </a>
+              </li>
         </div>
 
         <!-- Elevator Control -->

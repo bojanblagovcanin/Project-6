@@ -8,8 +8,7 @@ var elevatorContainer = document.getElementById("elevator-container");
 var currentFloor = 1;
 var floorHeight = 100;
 
-function onLoad()
-{
+function onLoad() {
     var usernameField = document.getElementById("username");
     usernameField.focus();
 }
@@ -17,58 +16,58 @@ function onLoad()
 function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    if (!checkULen(username))
-    {
+    if (!checkULen(username)) {
         return false;
     }
-    else if (!checkPLen(password))
-    { 
+    else if (!checkPLen(password)) {
         return false;
     }
-    else 
-    {
-
-        checkPLen(password);
+    else {
         // Perform login authentication here
-        // For simplicity, let's assume username: "admin" and password: "password"
-        if (username === "admin123" && password === "password") {
-            loginForm.style.display = "none";
-            elevatorContainer.style.display = "block";
-        } else {
-            alert("Invalid username or password");
-        }
+        var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
+        xhr.open("POST", "../php/login_data.php", true);   //true for asynchronous 
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) { //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
+                var response = xhr.responseText;
+                if  (response.includes("Login successful!")) {
+                    alert("valid username or password");
+                    loginForm.style.display = "none";
+                    elevatorContainer.style.display = "block";
+                } else {
+                    alert("Invalid username or password");
+                }
+                // Process the response from the PHP file
+                console.log(response);
+            }
+        };
+        var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password); //encodeURIComponent is a JS function used to encode special characters with their percent-encoded values to avoid errors
+        xhr.send(data);
     }
 }
 
-function checkULen(uname)
-{
-    if (uname.length < 7)
-    {
+function checkULen(uname) {
+    if (uname.length < 7) {
         alert("Username too short");
         return false;
     }
-    else 
-    {
+    else {
         return true;
     }
 }
 
-function checkPLen(pword)
-{
-    if (pword.length < 7)
-    {
+function checkPLen(pword) {
+    if (pword.length < 7) {
         alert("Password too short");
         return false;
     }
-    else
-    {
+    else {
         return true;
     }
 }
 
 function goToFloor(floor) {
-    if (doorDisplay.innerText != "Door Status: Open")
-    {
+    if (doorDisplay.innerText != "Door Status: Open") {
         var targetFloorPosition = (floor - 1) * floorHeight;
         var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
         var distance = Math.abs(currentPosition - targetFloorPosition);
@@ -81,14 +80,12 @@ function goToFloor(floor) {
 }
 
 //Elevator Door Animation
-function openDoor()
-{
+function openDoor() {
     doorDisplay.innerText = "Door Status: Open";
     elevDisplay.src = "../images/OpenElevator.png";
 }
 
-function closeDoor()
-{
+function closeDoor() {
     doorDisplay.innerText = "Door Status: Closed";
     elevDisplay.src = "../images/Elevator.png";
 }
@@ -133,4 +130,4 @@ function moveUp() {
     }
 }
 
-window.addEventListener('load',onLoad, false);
+window.addEventListener('load', onLoad, false);

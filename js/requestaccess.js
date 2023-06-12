@@ -1,6 +1,8 @@
 var feedbk = document.getElementById("feedback");
 var fname = document.getElementById("fname");
 var lname = document.getElementById("lname");
+var username = document.getElementById("username");
+var password = document.getElementById("password");
 var email = document.getElementById("email");
 var bdate = document.getElementById("bdate");
 var student = document.getElementById("student");
@@ -14,7 +16,11 @@ function testFill()
     feedbk.innerText = "Error, no first name provided";
   } else if (lname.value.length <1) {
     feedbk.innerText = "Error, no last name provided";
-  } else if (email.value.length <1) {
+  } else if (username.value.length <1) {
+    feedbk.innerText = "Error, no username provided";
+  } else if (password.value.length <1) {
+    feedbk.innerText = "Error, no password provided";
+  }else if (email.value.length <1) {
     feedbk.innerText = "Error, no email provided";
   } else if (bdate.value.length<1){
     feedbk.innerText = "Error, no birthday provided";
@@ -47,4 +53,4 @@ window.onload = function() {
   
     // Attach event listener to textarea input
     textarea.addEventListener("input", updateCharCount);
-  };
+  }
