@@ -23,7 +23,6 @@ function login() {
         return false;
     }
     else {
-        /*
         // Perform login authentication here
         var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
         xhr.open("POST", "../php/login_data.php", true);   //true for asynchronous 
@@ -44,12 +43,6 @@ function login() {
         };
         var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password); //encodeURIComponent is a JS function used to encode special characters with their percent-encoded values to avoid errors
         xhr.send(data);
-    }*/
-    if (username === "admin123" && password === "password") {
-        loginForm.style.display = "none";
-        elevatorContainer.style.display = "block";
-    } else {
-        alert("Invalid username or password");
     }
 }
 
