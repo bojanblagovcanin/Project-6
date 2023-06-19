@@ -1,6 +1,6 @@
 <?php
 	function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
-		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+		$db1 = new PDO('mysql:host=localhost;dbname=elevator','master','123');
 		$query = 'UPDATE elevatorNetwork 
 				SET currentFloor = :floor
 				WHERE nodeID = :id';
@@ -15,7 +15,7 @@
 
 <?php 
 	function get_currentFloor(): int {
-		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');}
+		try { $db = new PDO('mysql:host=localhost;dbname=elevator','master','123');}
 		catch (PDOException $e){echo $e->getMessage();}
 
 			// Query the database to display current floor
