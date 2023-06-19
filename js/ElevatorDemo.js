@@ -73,6 +73,9 @@ function goToFloor(floor) {
         var distance = Math.abs(currentPosition - targetFloorPosition);
         var duration = distance * 1; // Adjust the duration as desired
 
+        xhr.open("POST", "../php/index.php", true);   //true for asynchronous 
+        
+
         animateElevator(currentPosition, targetFloorPosition, duration);
         floorDisplay.innerText = "Floor: " + floor;
         currentFloor = floor;
