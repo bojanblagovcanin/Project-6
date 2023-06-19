@@ -16,6 +16,7 @@ function onLoad() {
 function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+
     if (!checkULen(username)) {
         return false;
     }
@@ -44,6 +45,7 @@ function login() {
         var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password); //encodeURIComponent is a JS function used to encode special characters with their percent-encoded values to avoid errors
         xhr.send(data);
     }
+    
 }
 
 function checkULen(uname) {

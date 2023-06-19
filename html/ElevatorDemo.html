@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Elevator Simulator</title>
     <meta name="Group 3" content="Elevator" http-equiv="pragma" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../css/ElevatorDemo.css">
     <meta http-equiv="pragma" content="no-cache">
 </head>
+
 <body>
     <div class="container">
         <h1>Elevator Simulator</h1>
@@ -19,11 +21,11 @@
             <br>
             <li>
                 <a href="request_access.html" class="request-button">
-                  <img src="../images/requestaccess.png" alt="Request Access" width='180px' height='50px' class="hover-image active-image rounded-corners">
+                    <img src="../images/requestaccess.png" alt="Request Access" width='180px' height='50px'
+                        class="hover-image active-image rounded-corners">
                 </a>
-              </li>
+            </li>
         </div>
-
         <!-- Elevator Control -->
         <div id="elevator-container" style="display: none;">
             <form action="../php/index.php" method="post"></form>
@@ -32,27 +34,43 @@
             <br>
             <img id="elevator" src="../images/Elevator.png"></img>
 
-            <img class="floor1-button" name="floor1" onclick="goToFloor(1)" src="../images/Button1.png" width="50" height="50"></img>
-            <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50" height="50"></img>
-            <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50" height="50"></img>
 
-            <img class="floor2-button" name="floor2" onclick="goToFloor(2)" src="../images/Button2.png" width="50" height="50"></img>
-            <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50" height="50"></img>
-            <img class="floor2-button" id="floor2-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50" height="50"></img>
+            <button name="floor1">
+                <img class="floor1-button" id="floor1" onclick="goToFloor(1)" src="../images/Button1.png" width="50"
+                    height="50"></img>
+            </button>
 
-            <img class="floor3-button" name="floor3" onclick="goToFloor(3)" src="../images/Button3.png" width="50" height="50"></img>
-            <img class="floor3-button" id="floor3-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50" height="50"></img>
-            <img class="floor3-button" id="floor3-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50" height="50"></img>
-            
+            <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+                height="50"></img>
+            <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+                height="50"></img>
+
+            <img class="floor2-button" id="floor2" onclick="goToFloor(2)" src="../images/Button2.png" width="50"
+                height="50"></img>
+            <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+                height="50"></img>
+            <img class="floor2-button" id="floor2-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+                height="50"></img>
+
+            <img class="floor3-button" id="floor3" onclick="goToFloor(3)" src="../images/Button3.png" width="50"
+                height="50"></img>
+            <img class="floor3-button" id="floor3-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+                height="50"></img>
+            <img class="floor3-button" id="floor3-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+                height="50"></img>
+
             <div id="inside-panel">
                 <img id="UpArrow" onclick="moveUp()" src="../images/ArrowUp.png" width="75" height="75"></img>
                 <img id="DownArrow" onclick="moveDown()" src="../images/ArrowDown.png" width="75" height="75"></img>
                 <br>
-                <img class="open-button" id="inside-open" onclick="openDoor()" src="../images/OpenDoor.png" width="75" height="75"></img>
-                <img class="close-button" id="inside-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="75" height="75"></img>
+                <img class="open-button" id="inside-open" onclick="openDoor()" src="../images/OpenDoor.png" width="75"
+                    height="75"></img>
+                <img class="close-button" id="inside-close" onclick="closeDoor()" src="../images/CloseDoor.png"
+                    width="75" height="75"></img>
+            </div>
         </div>
-    </div>
 
-    <script src="../js/ElevatorDemo.js"></script>
+        <script src="../js/ElevatorDemo.js"></script>
 </body>
+
 </html>
