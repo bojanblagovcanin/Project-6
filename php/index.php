@@ -20,9 +20,7 @@ function update_elevatorNetwork(int $node_ID, int $new_floor = 1): int
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Check if a specific form field is submitted
 
-	if (isset($_POST['floor'])) {
-
-		$floor = $_POST['floor'];
+	$floor = $_POST['floor'];
 		
 		if ($floor === '1'){
 			update_elevatorNetwork(1, 1);
@@ -34,5 +32,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			update_elevatorNetwork(1, 3);
 		}
 	}
-}
+
 ?>
