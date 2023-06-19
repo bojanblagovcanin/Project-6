@@ -21,7 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Check if a specific form field is submitted
 
 	$floor = $_POST['data'];
-		
+
+		echo $floor;
+
 		if ($floor === '1'){
 			echo "floor 1 go";
 			update_elevatorNetwork(1, 1);
