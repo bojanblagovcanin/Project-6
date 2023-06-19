@@ -77,6 +77,7 @@ function goToFloor(floor) {
         // Prepare the request
         xhr.open('POST', '../php/index.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {}
 
         // Define the data to send
         var data = floor;
