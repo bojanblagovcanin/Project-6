@@ -14,24 +14,6 @@
 ?>
 
 
-<html>
-	<h1>ESE Project VI Elevator</h1> 
-	
-		
-		
-		<h2> 	
-			
-		</h2>
-		  
-		
-</html>
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -46,10 +28,13 @@
 <body>
 
     <?php 
+    /*
 		if(isset($_POST['newfloor'])) {
 			$curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
-			header('Refresh:0; url=index.php');	
+			header('Refresh:0; url=mike.php');	
         } 
+    */
+    $curFlr = update_elevatorNetwork(1, 2); 
 				
 	?>		
 
