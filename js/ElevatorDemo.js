@@ -80,7 +80,7 @@ function goToFloor(floor) {
 
         // Define the data to send
         var data = floor;
-        alert("going to floor ", floor);
+        alert("going to floor " + floor);
 
         // Send the request
         xhr.send(data);
