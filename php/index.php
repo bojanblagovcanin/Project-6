@@ -28,17 +28,17 @@
 ?>
         <?php
         if(isset($_POST['floor1'])) {
-            $curFlr = update_elevatorNetwork(1, $_POST['floor1']); 
+            $curFlr = update_elevatorNetwork(1, 1); 
 			header('Refresh:0; url=../php/index.php');	
         }
 
 		if(isset($_POST['floor2'])) {
-            $curFlr = update_elevatorNetwork(1, $_POST['floor2']); 
+            $curFlr = update_elevatorNetwork(1, 2); 
 			header('Refresh:0; url=../php/index.php');	
         }
 
 		if(isset($_POST['floor3'])) {
-            $curFlr = update_elevatorNetwork(1, $_POST['floor3']); 
+            $curFlr = update_elevatorNetwork(1, 3); 
 			header('Refresh:0; url=../php/index.php');	
         }
 
