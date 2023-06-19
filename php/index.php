@@ -1,6 +1,6 @@
 <?php
 	function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
-		$db1 = new PDO('mysql:host=localhost;dbname=elevator','master','123');
+		$db1 = new PDO('mysql:host=localhost;dbname=elevator','ese','ese');
 		$query = 'UPDATE elevatorNetwork 
 				SET currentFloor = :floor
 				WHERE nodeID = :id';
