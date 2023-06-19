@@ -26,11 +26,11 @@ function login() {
         // Perform login authentication here
         var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
         xhr.open("POST", "../php/login_data.php", true);   //true for asynchronous 
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) { //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
                 var response = xhr.responseText;
-                if  (response.includes("Login successful!")) {
+                if (response.includes("Login successful!")) {
                     alert("valid username or password");
                     loginForm.style.display = "none";
                     elevatorContainer.style.display = "block";
@@ -72,10 +72,6 @@ function goToFloor(floor) {
         var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
         var distance = Math.abs(currentPosition - targetFloorPosition);
         var duration = distance * 1; // Adjust the duration as desired
-
-        xhr.open("POST", "../php/index.php", true);   //true for asynchronous 
-        
-
         animateElevator(currentPosition, targetFloorPosition, duration);
         floorDisplay.innerText = "Floor: " + floor;
         currentFloor = floor;
