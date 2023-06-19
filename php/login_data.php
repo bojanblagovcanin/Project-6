@@ -6,8 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Example: Display the form data
-    echo "Username: " . $username . "<br>";
-    echo "Password: " . $password . "<br>";
+    //echo "Username: " . $username . "<br>";
+    //echo "Password: " . $password . "<br>";
 
     // Connect to the database 
     $conn = new PDO('mysql:host=localhost;dbname=login_system', 'master', '123');
