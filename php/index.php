@@ -13,35 +13,18 @@
 	}
 ?>
 
-<?php 
-	function get_currentFloor(): int {
-		try { $db = new PDO('mysql:host=localhost;dbname=elevator','master','123');}
-		catch (PDOException $e){echo $e->getMessage();}
 
-			// Query the database to display current floor
-			$rows = $db->query('SELECT currentFloor FROM elevatorNetwork');
-			foreach ($rows as $row) {
-				$current_floor = $row[0];
-			}
-			return $current_floor;
-	}
-?>
         <?php
         if(isset($_POST['floor1'])) {
-            $curFlr = update_elevatorNetwork(1, 1); 
-			header('Refresh:0; url=../php/index.php');	
+            update_elevatorNetwork(1, 1); 	
         }
 
 		if(isset($_POST['floor2'])) {
-            $curFlr = update_elevatorNetwork(1, 2); 
-			header('Refresh:0; url=../php/index.php');	
+            update_elevatorNetwork(1, 2); 	
         }
 
 		if(isset($_POST['floor3'])) {
-            $curFlr = update_elevatorNetwork(1, 3); 
-			header('Refresh:0; url=../php/index.php');	
+            update_elevatorNetwork(1, 3); 	
         }
 
 ?>
- 
- 
