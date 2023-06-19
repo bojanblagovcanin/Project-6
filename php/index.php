@@ -12,6 +12,7 @@
 		return $new_floor;
 	}
 ?>
+
 <?php 
 	function get_currentFloor(): int {
 		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');}
@@ -25,28 +26,22 @@
 			return $current_floor;
 	}
 ?>
+        <?php
+        if(isset($_POST['floor1'])) {
+            $curFlr = update_elevatorNetwork(1, $_POST['floor1']); 
+			header('Refresh:0; url=../php/index.php');	
+        }
 
+		if(isset($_POST['floor2'])) {
+            $curFlr = update_elevatorNetwork(1, $_POST['floor2']); 
+			header('Refresh:0; url=../php/index.php');	
+        }
 
-<html>
-	<h1>ESE Project VI Elevator</h1> 
-	
-		<?php 
-			if(isset($_POST['newfloor'])) {
-				$curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
-				header('Refresh:0; url=index.php');	
-			} 
-			$curFlr = get_currentFloor();
-			echo "<h2>Current floor # $curFlr </h2>";			
-		?>		
-		
-		<h2> 	
-			<form action="index.php" method="POST">
-				Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
-				<input type="submit" value="Go"/>
-			</form>
-		</h2>
-		  
-		
-</html>
+		if(isset($_POST['floor3'])) {
+            $curFlr = update_elevatorNetwork(1, $_POST['floor3']); 
+			header('Refresh:0; url=../php/index.php');	
+        }
+
+?>
  
  
