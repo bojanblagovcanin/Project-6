@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$floor = $_POST['floor'];
 		
 		if ($floor === '1'){
+			echo "floor 1 go";
 			update_elevatorNetwork(1, 1);
 		}
 		if ($floor === '2'){
