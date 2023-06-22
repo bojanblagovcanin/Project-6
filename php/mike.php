@@ -35,9 +35,9 @@ function update_elevatorNetwork(int $node_ID, int $new_floor = 1): int
             header('Refresh:0; url=mike.php');	
         } 
     */
-    $curFlr = update_elevatorNetwork(1, 2);
-    echo $_POST['newfloor'];
-
+        $curFlr = update_elevatorNetwork(1, 2);
+        $testecho = $_POST['newfloor'];
+        echo "going to floor: " . $testecho 
     ?>
 
     <div class="container">
