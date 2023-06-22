@@ -35,6 +35,7 @@
         } 
     */
     $curFlr = update_elevatorNetwork(1, 2); 
+    echo $_POST['newfloor'];
 				
 	?>		
 
