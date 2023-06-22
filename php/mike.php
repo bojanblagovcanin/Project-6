@@ -1,16 +1,17 @@
 <?php
-	function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
-		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
-		$query = 'UPDATE elevatorNetwork 
+function update_elevatorNetwork(int $node_ID, int $new_floor = 1): int
+{
+    $db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator', 'ese', 'ese');
+    $query = 'UPDATE elevatorNetwork 
 				SET currentFloor = :floor
 				WHERE nodeID = :id';
-		$statement = $db1->prepare($query);
-		$statement->bindvalue('floor', $new_floor);
-		$statement->bindvalue('id', $node_ID);
-		$statement->execute();	
-		
-		return $new_floor;
-	}
+    $statement = $db1->prepare($query);
+    $statement->bindvalue('floor', $new_floor);
+    $statement->bindvalue('id', $node_ID);
+    $statement->execute();
+
+    return $new_floor;
+}
 ?>
 
 
@@ -27,17 +28,17 @@
 
 <body>
 
-    <?php 
+    <?php
     /*
-		if(isset($_POST['newfloor'])) {
-			$curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
-			header('Refresh:0; url=mike.php');	
+        if(isset($_POST['newfloor'])) {
+            $curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
+            header('Refresh:0; url=mike.php');	
         } 
     */
-    $curFlr = update_elevatorNetwork(1, 2); 
+    $curFlr = update_elevatorNetwork(1, 2);
     echo $_POST['newfloor'];
-				
-	?>		
+
+    ?>
 
     <div class="container">
         <h1>Elevator Simulator</h1>
@@ -61,7 +62,7 @@
         -->
 
         <!-- Elevator Control -->
-        <div id="elevator-container" >
+        <div id="elevator-container">
             <form action="mike.php" method="post"></form>
             <div id="floor">Floor: 1</div>
             <div id="door">Door Status: Closed</div>
@@ -70,24 +71,30 @@
 
             <form action="mike.php" method="POST">
                 <img class="floor1-button" id="floor1" onclick="goToFloor(1)" src="../images/Button1.png" width="50"
-                height="50" name="newfloor" value=1 type="submit"></img>
-			</form>
+                    height="50" name="newfloor" value=1 type="submit"></img>
+            </form>
 
-            
+
             <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
             <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
                 height="50"></img>
 
-            <img class="floor2-button" id="floor2" onclick="goToFloor(2)" src="../images/Button2.png" width="50"
-                height="50"></img>
+            <form action="mike.php" method="POST">
+                <img class="floor2-button" id="floor2" onclick="goToFloor(2)" src="../images/Button2.png" width="50"
+                    height="50" name="newfloor" value=2 type="submit"></img>
+            </form>
+
             <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
             <img class="floor2-button" id="floor2-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
                 height="50"></img>
 
-            <img class="floor3-button" id="floor3" onclick="goToFloor(3)" src="../images/Button3.png" width="50"
-                height="50"></img>
+            <form action="mike.php" method="POST">
+                <img class="floor3-button" id="floor3" onclick="goToFloor(3)" src="../images/Button3.png" width="50"
+                    height="50" name="newfloor" value=3 type="submit"></img>
+            </form>
+
             <img class="floor3-button" id="floor3-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
             <img class="floor3-button" id="floor3-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
