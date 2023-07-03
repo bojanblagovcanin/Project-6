@@ -70,6 +70,21 @@ function checkPLen(pword) {
 
 function goToFloor(floor) {
     if (doorDisplay.innerText != "Door Status: Open") {
+
+        var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
+        xhr.open("GET", "../php/index.php?floor=1", true);   //true for asynchronous 
+
+        xmlhttpShow.onreadystatechange = function(){
+
+            if (xhr.readyState === 4 && xhr.status === 200) { //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
+                var response = xhr.responseText;
+                
+                // Process the response from the PHP file
+                document.getElementsByName('newfloor')
+            }
+        };
+        xhr.send(data);
+
         var targetFloorPosition = (floor - 1) * floorHeight;
         var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
         var distance = Math.abs(currentPosition - targetFloorPosition);
