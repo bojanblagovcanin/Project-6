@@ -45,14 +45,10 @@ echo "<h2>Current floor # $curFlr </h2>";
 ?>
 
 <h2>
-    <form action="learn.php" method="POST">
-
-            <button class="floor-button" id="floor1" name="newfloor">Floor 1</button>
-            <button class="floor-button" id="floor2" name="newfloor">Floor 2</button>
-            <button class="floor-button" id="floor3" name="newfloor">Floor 3</button>
+    <form action="index.php" method="POST">
+        Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
+        <input type="submit" value="Go" />
     </form>
-
-   
 </h2>
 
 </html>
