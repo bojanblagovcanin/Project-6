@@ -34,6 +34,7 @@ function get_currentFloor(): int
 <?php
 if (isset($_POST['newfloor'])) {
     $curFlr = update_elevatorNetwork(1, $_POST['newfloor']);
+	header('url=../php/index.php');
 }
 ?>
 
@@ -63,7 +64,6 @@ if (isset($_POST['newfloor'])) {
                 </button>
             </form>
 
-
             <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
             <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
@@ -74,7 +74,6 @@ if (isset($_POST['newfloor'])) {
                         height="50" onclick="goToFloor(2)">
                 </button>
             </form>
-
 
             <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
