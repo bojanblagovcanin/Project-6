@@ -46,9 +46,9 @@ echo "<h2>Current floor # $curFlr </h2>";
 
 <h2>
     <form action="learn.php" method="POST">
-        <button type="submit" name="newfloor" value = "1">Floor 1</button>
-        <button type="submit" name="newfloor" value = "2">Floor 2</button>
-        <button type="submit" name="newfloor" value = "3">Floor 3</button>
+        <img type="submit" name="newfloor" value = "1" src="../images/Button1.png">Floor 1</img>
+        <img type="submit" name="newfloor" value = "2" src="../images/Button1.png">Floor 2</img>
+        <img type="submit" name="newfloor" value = "3" src="../images/Button1.png">Floor 3</img>
     </form>
 </h2>
 
