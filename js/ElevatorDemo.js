@@ -105,7 +105,7 @@ function showFloor() {
             // 'this' refers to the xmlhttp object and responseText is the property that contains the text returned from the server
         }
     };
-    xmlhttpShow.open("GET", "../php/showFloor.php?q=", true);  // Open connection
+    xmlhttpShow.open("GET", "../php/showfloor.php?q=", true);  // Open connection
     xmlhttpShow.send();                                       // Send request
 
 }
