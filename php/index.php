@@ -14,12 +14,9 @@
 ?>
 
 <?php 
-    	$myValue = $_GET['myValue'];
-		echo $myValue;
-		
-		if(isset($_POST['newfloor'])) {
-			$curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
-			echo "going to floor: " + $_POST['newfloor'];
+		if(isset($_GET['newfloor'])) {
+			$curFlr = update_elevatorNetwork(1, $_GET['newfloor']); 
+			echo "going to floor: " + $_GET['newfloor'];
 			header('Refresh:0; url=../php/index.php');	
         } 
     			
