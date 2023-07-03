@@ -46,21 +46,13 @@ echo "<h2>Current floor # $curFlr </h2>";
 
 <h2>
     <form action="learn.php" method="POST">
-        <img class="floor1-button" id="floor1" src="../images/Button1.png" width="50" height="50" name="newfloor"
-            value=1 type="submit"></img>
 
+            <button class="floor-button" id="floor1" name="newfloor">Floor 1</button>
+            <button class="floor-button" id="floor2" name="newfloor">Floor 2</button>
+            <button class="floor-button" id="floor3" name="newfloor">Floor 3</button>
     </form>
 
-    <form action="learn.php" method="POST">
-        <img class="floor2-button" id="floor2" src="../images/Button2.png" width="50" height="50" name="newfloor"
-            value=2 type="submit"></img>
-    </form>
-
-    <form action="learn.php" method="POST">
-        <img class="floor3-button" id="floor3" src="../images/Button3.png" width="50" height="50" name="newfloor"
-            value=3 type="submit"></img>
-    </form>
-
+   
 </h2>
 
 </html>
