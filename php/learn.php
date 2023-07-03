@@ -46,8 +46,9 @@ echo "<h2>Current floor # $curFlr </h2>";
 
 <h2>
     <form action="learn.php" method="POST">
-        Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
-        <input type="submit" value="Go" />
+        <button type="submit" name="newfloor" value = "1">Floor 1</button>
+        <button type="submit" name="newfloor" value = "2">Floor 2</button>
+        <button type="submit" name="newfloor" value = "3">Floor 3</button>
     </form>
 </h2>
 
