@@ -38,7 +38,6 @@ if (isset($_POST['newfloor'])) {
 ?>
 
 <html>
-
 <head>
     <title>Elevator Simulator</title>
     <meta name="Group 3" content="Elevator" http-equiv="pragma" content="no-cache">
@@ -51,24 +50,7 @@ if (isset($_POST['newfloor'])) {
     <div class="container">
         <h1>Elevator Simulator</h1>
 
-        <form action="../php/login_data.php" method="post"></form>
-        <!-- Login -->
-        <div id="login-form" style="display: none;">
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
-            <button onclick="login()">Login</button>
-            <br>
-            <br>
-            <li>
-                <a href="request_access.html" class="request-button">
-                    <img src="../images/requestaccess.png" alt="Request Access" width='180px' height='50px'
-                        class="hover-image active-image rounded-corners">
-                </a>
-            </li>
-        </div>
-
         <!-- Elevator Control -->
-
         <div id="elevator-container">
             <div id="floor">Floor: 1</div>
             <div id="door">Door Status: Closed</div>
