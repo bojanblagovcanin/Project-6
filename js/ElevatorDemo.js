@@ -78,9 +78,6 @@ function goToFloor(floor) {
 
             if (xhr.readyState === 4 && xhr.status === 200) { //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
                 var response = xhr.responseText;
-                
-                // Process the response from the PHP file
-                document.getElementsByName('newfloor')
             }
         };
         xhr.send();
