@@ -14,7 +14,9 @@
 ?>
 
 <?php 
-    
+    	$myValue = $_GET['myValue'];
+		echo $myValue;
+		
 		if(isset($_POST['newfloor'])) {
 			$curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
 			echo "going to floor: " + $_POST['newfloor'];
