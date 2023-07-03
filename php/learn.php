@@ -48,7 +48,6 @@ echo "<h2>Current floor # $curFlr </h2>";
     <form action="learn.php" method="POST">
         <button type="submit" name="newfloor" value="1"> <img src="../images/Button1.png" width="50" height="50">
         </button>
-
     </form>
     <form action="learn.php" method="POST">
         <button type="submit" name="newfloor" value="2"> <img src="../images/Button2.png" width="50" height="50">
