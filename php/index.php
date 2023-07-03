@@ -34,9 +34,5 @@ function get_currentFloor(): int
 
 <?php
 $floor = $_GET['floor'];
-echo $floor;
-
-if (isset($_POST['newfloor'])) {
-    $curFlr = update_elevatorNetwork(1, $_POST['newfloor']);
-}
+$curFlr = update_elevatorNetwork(1, $floor);
 ?>
