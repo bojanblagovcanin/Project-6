@@ -72,13 +72,14 @@ function goToFloor(floor) {
     if (doorDisplay.innerText != "Door Status: Open") {
 
         var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
-        xhr.open("GET", "../php/index.php?floor="+ floor, true);   //true for asynchronous 
+        xhr.open("GET", "../php/index.php?floor=" + floor, true);   //true for asynchronous 
 
-        xhr.onreadystatechange = function(){
+        xhr.onreadystatechange = function () {
 
             if (xhr.readyState === 4 && xhr.status === 200) { //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
                 var response = xhr.responseText;
             }
+
         };
         xhr.send();
 
@@ -91,6 +92,36 @@ function goToFloor(floor) {
         currentFloor = floor;
     }
 }
+function showFloor() {
+    var xmlhttpShow = new XMLHttpRequest();     // Instantiate a XMLHttpRequest object
+    // Function to be executed when readyState changes (server response ready)
+    xmlhttpShow.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // readyState holds the status of the XMLHttpRequest (4 means finished request and server response is ready)
+            // status hold 200 for OK
+            document.getElementById("floor").innerHTML = this.responseText;
+            // responseText string returned from server in 'echo' statement
+            // THIS IS A GLOBAL VARIABLE SINCE DECLARED IN HTML FILE - Convert text string to javascript array in JSON format 
+            // 'this' refers to the xmlhttp object and responseText is the property that contains the text returned from the server
+        }
+    };
+    xmlhttpShow.open("GET", "../php/showFloor.php?q=", true);  // Open connection
+    xmlhttpShow.send();                                       // Send request
+
+}
+
+function showFloorTimeout() {     // Button updates 250 ms after pressed
+    setTimeout(showFloor, 250);
+}
+
+function showFloorInterval() {    // Automatic updates every 250 ms
+    setInterval(showFloor, 1000);
+}
+
+// Event listeners 
+window.addEventListener('load', function () { showFloorInterval() }, false);  // Button updates 250 ms after pressed
+
+
 
 //Elevator Door Animation
 function openDoor() {

@@ -14,23 +14,6 @@ function update_elevatorNetwork(int $node_ID, int $new_floor = 1): int
 }
 
 ?>
-<?php
-function get_currentFloor(): int
-{
-    try {
-        $db = new PDO('mysql:host=127.0.0.1;dbname=elevator', 'ese', 'ese');
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-
-    // Query the database to display current floor
-    $rows = $db->query('SELECT currentFloor FROM elevatorNetwork');
-    foreach ($rows as $row) {
-        $current_floor = $row[0];
-    }
-    return $current_floor;
-}
-?>
 
 <?php
 $floor = $_GET['floor'];
