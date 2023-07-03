@@ -70,22 +70,6 @@ function checkPLen(pword) {
 
 function goToFloor(floor) {
     if (doorDisplay.innerText != "Door Status: Open") {
-/*
-        // Create an AJAX request
-        var xhr = new XMLHttpRequest();
-
-        // Prepare the request
-        xhr.open('POST', '../php/index.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function () {}
-
-        // Define the data to send
-        var data = floor;
-        alert("going to floor " + floor);
-
-        // Send the request
-        xhr.send(data);
-*/
         var targetFloorPosition = (floor - 1) * floorHeight;
         var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
         var distance = Math.abs(currentPosition - targetFloorPosition);
