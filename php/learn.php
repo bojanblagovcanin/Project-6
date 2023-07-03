@@ -47,15 +47,14 @@ echo "<h2>Current floor # $curFlr </h2>";
 <h2>
     <form action="learn.php" method="POST">
 
-        <img class="floor1-button" id="floor1" onclick="goToFloor(1)" src="../images/Button1.png" width="50" height="50"
+        <img class="floor1-button" id="floor1" src="../images/Button1.png" width="50" height="50"
             name="newfloor" value=1 type="submit"></img>
-        <img class="floor2-button" id="floor2" onclick="goToFloor(2)" src="../images/Button2.png" width="50" height="50"
+        <img class="floor2-button" id="floor2" src="../images/Button2.png" width="50" height="50"
             name="newfloor" value=2 type="submit"></img>
-        <img class="floor2-button" id="floor3" onclick="goToFloor(3)" src="../images/Button3.png" width="50" height="50"
+        <img class="floor2-button" id="floor3" src="../images/Button3.png" width="50" height="50"
             name="newfloor" value=3 type="submit"></img>
     </form>
 
 </h2>
-<script src="../js/ElevatorDemo.js"></script>
 
 </html>
