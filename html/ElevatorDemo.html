@@ -15,7 +15,7 @@
 
         <form action="../php/login_data.php" method="post"></form>
         <!-- Login -->
-        <div id="login-form">
+        <div id="login-form" style="display: none;">
             <input type="text" id="username" placeholder="Username">
             <input type="password" id="password" placeholder="Password">
             <button onclick="login()">Login</button>
@@ -30,36 +30,40 @@
         </div>
 
         <!-- Elevator Control -->
-        <div id="elevator-container" style="display: none;">
+        <div id="elevator-container">
             <div id="floor">Floor: 1</div>
             <div id="door">Door Status: Closed</div>
             <br>
             <img id="elevator" src="../images/Elevator.png"></img>
 
-            <form action="../php/index.php" method="GET">
+           <!-- <form action="../php/index.php" method="GET">
                 <img class="floor1-button" id="floor1" onclick="goToFloor(1)" src="../images/Button1.png" width="50"
                     height="50" name="newfloor" value=1 type="submit"></img>
-            </form>
+            </form>-->
+
+            <button class="floor-button" id="floor1" onclick="goToFloor(1)">Floor 1</button>
+            <button class="floor-button" id="floor2" onclick="goToFloor(2)">Floor 2</button>
+            <button class="floor-button" id="floor3" onclick="goToFloor(3)">Floor 3</button>
 
             <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
             <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
                 height="50"></img>
 
-            <form action="../php/index.php" method="GET">
+           <!-- <form action="../php/index.php" method="GET">
                 <img class="floor2-button" id="floor2" onclick="goToFloor(2)" src="../images/Button2.png" width="50"
                     height="50" name="newfloor" value=2 type="submit"></img>
-            </form>
+            </form>-->
 
             <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
             <img class="floor2-button" id="floor2-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
                 height="50"></img>
 
-            <form action="../php/index.php" method="GET">
+            <!--<form action="../php/index.php" method="GET">
                 <img class="floor3-button" id="floor3" onclick="goToFloor(3)" src="../images/Button3.png" width="50"
                     height="50" name="newfloor" value=3 type="submit"></img>
-            </form>
+            </form>-->
 
             <img class="floor3-button" id="floor3-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
                 height="50"></img>
