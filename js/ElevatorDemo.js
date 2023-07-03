@@ -72,7 +72,7 @@ function goToFloor(floor) {
     if (doorDisplay.innerText != "Door Status: Open") {
 
         var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
-        xhr.open("GET", "../php/index.php?floor=1", true);   //true for asynchronous 
+        xhr.open("GET", "../php/index.php?floor="+ floor, true);   //true for asynchronous 
 
         xhr.onreadystatechange = function(){
 
