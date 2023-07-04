@@ -9,82 +9,56 @@
 </head>
 
 <body>
-
-    <div class="container">
+    <!-- Elevator Control -->
+    <div id="elevator-container">
         <h1>Elevator Simulator</h1>
+        <div id="floor"></div>
+        <div id="door">Door Status: Closed</div>
+        <br>
+        <img id="elevator" src="../images/Elevator.png"></img>
 
-        <form action="../php/login_data.php" method="post"></form>
-        <!-- Login -->
-        <div id="login-form" style="display: none;">
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
-            <button onclick="login()">Login</button>
-            <br>
-            <br>
-            <li>
-                <a href="request_access.html" class="request-button">
-                    <img src="../images/requestaccess.png" alt="Request Access" width='180px' height='50px'
-                        class="hover-image active-image rounded-corners">
-                </a>
-            </li>
-        </div>
+        <!--Floor 1 Controls-->
+        <form action="">
+            <button id="floor1"> <img src="../images/Button1.png" width="50" height="50" onclick="goToFloor(event, 1)">
+            </button>
+        </form>
+        <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+            height="50"></img>
+        <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+            height="50"></img>
 
-        <!-- Elevator Control -->
+        <!--Floor 2 Controls-->
+        <form action="">
+            <button id="floor2"> <img src="../images/Button2.png" width="50" height="50" onclick="goToFloor(event, 2)">
+            </button>
+        </form>
+        <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+            height="50"></img>
+        <img class="floor2-button" id="floor2-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+            height="50"></img>
 
-        <div id="elevator-container">
-            <div id="floor"></div>
-            <div id="door">Door Status: Closed</div>
-            <br>
-            <img id="elevator" src="../images/Elevator.png"></img>
+        <!--Floor 3 Controls-->
+        <form action="">
+            <button id="floor3"> <img src="../images/Button3.png" width="50" height="50" onclick="goToFloor(event, 3)">
+            </button>
+        </form>
+        <img class="floor3-button" id="floor3-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+            height="50"></img>
+        <img class="floor3-button" id="floor3-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+            height="50"></img>
+    </div>
 
-            <form action=""> 
-                <button> <img src="../images/Button1.png" width="50"
-                        height="50" onclick="goToFloor(1)">
-                </button>
-            </form>
+    <div id="inside-panel">
+        <img id="UpArrow" onclick="moveUp()" src="../images/ArrowUp.png" width="75" height="75"></img>
+        <img id="DownArrow" onclick="moveDown()" src="../images/ArrowDown.png" width="75" height="75"></img>
+        <br>
+        <img class="open-button" id="inside-open" onclick="openDoor()" src="../images/OpenDoor.png" width="75"
+            height="75"></img>
+        <img class="close-button" id="inside-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="75"
+            height="75"></img>
+    </div>
 
-            <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
-                height="50"></img>
-            <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
-                height="50"></img>
-
-            <form action="">
-                <button> <img src="../images/Button2.png" width="50"
-                        height="50" onclick="goToFloor(2)">
-                </button>
-            </form>
-            
-
-
-            <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
-                height="50"></img>
-            <img class="floor2-button" id="floor2-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
-                height="50"></img>
-
-            <form action="">
-                <button> <img src="../images/Button3.png" width="50"
-                        height="50" onclick="goToFloor(3)">
-                </button>
-            </form>
-            
-
-            <img class="floor3-button" id="floor3-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
-                height="50"></img>
-            <img class="floor3-button" id="floor3-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
-                height="50"></img>
-
-            <div id="inside-panel">
-                <img id="UpArrow" onclick="moveUp()" src="../images/ArrowUp.png" width="75" height="75"></img>
-                <img id="DownArrow" onclick="moveDown()" src="../images/ArrowDown.png" width="75" height="75"></img>
-                <br>
-                <img class="open-button" id="inside-open" onclick="openDoor()" src="../images/OpenDoor.png" width="75"
-                    height="75"></img>
-                <img class="close-button" id="inside-close" onclick="closeDoor()" src="../images/CloseDoor.png"
-                    width="75" height="75"></img>
-            </div>
-        </div>
-
-        <script src="../js/ElevatorDemo.js"></script>
+    <script src="../js/ElevatorDemo.js"></script>
 </body>
 
 </html>

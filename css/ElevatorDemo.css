@@ -3,25 +3,34 @@ body {
     background-color: #687871;
 }
 
+h1 {
+    text-align: center;
+}
 
-.container {
+#elevator-container {
     text-align: center;
     margin-top: 100px;
 }
-.floor-button{
+
+.floor-button {
     margin: 5px;
 }
+
 #floor {
+    text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+#door {
+    text-align: center;
 }
 
 #elevator {
     position: relative;
     width: 75px;
     height: 75px;
-    background-color: rgba(0,0,0,0);
-    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0);
     transition: top 0.5s;
 }
 
@@ -31,15 +40,15 @@ body {
     top: 250px;
     transform: translateX(-50%);
 }
-#floor1-open
-{
+
+#floor1-open {
     position: absolute;
     left: 59%;
     top: 250px;
     transform: translateX(-50%);
 }
-#floor1-close
-{
+
+#floor1-close {
     position: absolute;
     left: 62%;
     top: 250px;
@@ -53,15 +62,15 @@ body {
     top: 350px;
     transform: translateX(-50%);
 }
-#floor2-open
-{
+
+#floor2-open {
     position: absolute;
     left: 59%;
     top: 350px;
     transform: translateX(-50%);
 }
-#floor2-close
-{
+
+#floor2-close {
     position: absolute;
     left: 62%;
     top: 350px;
@@ -74,15 +83,15 @@ body {
     top: 450px;
     transform: translateX(-50%);
 }
-#floor3-open
-{
+
+#floor3-open {
     position: absolute;
     left: 59%;
     top: 450px;
     transform: translateX(-50%);
 }
-#floor3-close
-{
+
+#floor3-close {
     position: absolute;
     left: 62%;
     top: 450px;
@@ -91,7 +100,7 @@ body {
 
 #inside-panel {
     position: absolute;
-    left: 40%;
+    left: 30%;
     top: 100;
     transform: translateX(-50%);
 }
@@ -99,11 +108,3 @@ body {
 #inside-panel button {
     margin: 5px;
 }
-
-.hover-image:hover {
-    content: url("../images/requestaccess-hover.png");
-  }
-  
-  .active-image:active {
-    content: url("../images/requestaccess-active.png");
-  }
