@@ -1,25 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Create a new XMLHttpRequest object
+function updateUser() {
   var xhr = new XMLHttpRequest();
-
-  // Set up the request
   xhr.open('GET', '../php/member.php', true);
-
-  // Set the callback function
   xhr.onreadystatechange = function() {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        // Request successful, update the username in the navbar
-        var username = xhr.responseText;
-        var usernameLink = document.getElementById('username-link');
-        usernameLink.innerHTML = username;
+        document.getElementById("floor").innerHTML = this.responseText;
       } else {
         // Request failed, handle the error
         console.log('Error:', xhr.status);
       }
     }
   };
-
   // Send the request
   xhr.send();
-});
+  console.log(username);
+}
+
+function showusername() {    // Automatic updates every 250 ms
+  setInterval(updateUser, 1000);
+}
+
+window.addEventListener('load', function () { showusername() }, false);
