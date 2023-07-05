@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set the callback function
   xhr.onreadystatechange = function() {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
+      if (xhr.readyState === 4 && xhr.status === 200) {
         // Request successful, update the username in the navbar
         var username = xhr.responseText;
         var usernameLink = document.getElementById('username-link');
