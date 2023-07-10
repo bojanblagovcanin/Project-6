@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Project Plan - Group 3</title>
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
+
 <body>
+    <div id="navbarContainer"></div>
 
     <h1 id="pplan">Project Plan - Group 3 google sheet</h1>
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQgJhDvLFrYIDWYUxrnxnWYPhUEpTBt5h8uqV4EJNQnf_9LB8SVqG5Tts-4PAibw0oRukhFsSy4Kkp0/pubhtml?widget=true&amp;headers=false" width="100%" height="600"></iframe>
+    <iframe
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQgJhDvLFrYIDWYUxrnxnWYPhUEpTBt5h8uqV4EJNQnf_9LB8SVqG5Tts-4PAibw0oRukhFsSy4Kkp0/pubhtml?widget=true&amp;headers=false"
+        width="100%" height="600"></iframe>
 
     <h1 id="pplan">Project Plan - Group 3</h1>
     <h2 id="pweek1+2">Week 1+2:</h2>
@@ -27,11 +32,11 @@
             CAN Messages result in changes to database and GUI/Indicators
             Commands from CAN/LAN networks are sent to the controller and move the elevator / indicate floor number
         </li>
-        <li>Selman: User Interface, action buttons/icons, 
+        <li>Selman: User Interface, action buttons/icons,
             Indicators/lights etc. implemented
             User action buttons developed to make changes to UI that are reflected in the database
             User indicator buttons change - changes in database are reflected in UI
-            Users are authorized/authenticated based on username/password  
+            Users are authorized/authenticated based on username/password
             Server program provides logging data/accepts commands only from authorized users
         </li>
         <li>Bojan: User action buttons/icons implemented
@@ -40,8 +45,8 @@
             User indicator buttons change - changes in database are reflected in UI
             Database set up and accepting values/commands from website
             Database has fields for logging information placed on the CAN bus
-            Produced based on content in database 
-            Users may operate the elevator without having to push buttons (e.g. verbally, based on schedule/time) 
+            Produced based on content in database
+            Users may operate the elevator without having to push buttons (e.g. verbally, based on schedule/time)
             Research and Implement a CAN/LAN communication bridge
             Ensure activity in CAN network changes values in database
             Changes in User Interface/Website changes value in database and generate CAN messages
@@ -57,5 +62,9 @@
         </li>
 
     </ol>
+    <script src="../js/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>

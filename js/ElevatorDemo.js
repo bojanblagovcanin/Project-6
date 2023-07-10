@@ -2,82 +2,56 @@ var elevator = document.getElementById("elevator");
 var floorDisplay = document.getElementById("floor");
 var doorDisplay = document.getElementById("door");
 var elevDisplay = document.getElementById("elevator");
-var loginForm = document.getElementById("login-form");
 var elevatorContainer = document.getElementById("elevator-container");
 
 var currentFloor = 1;
 var floorHeight = 100;
 
-function onLoad() {
-    var usernameField = document.getElementById("username");
-    usernameField.focus();
-}
+function goToFloor(event, floor) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    if (doorDisplay.innerText != "Door Status: Open") {
 
-function login() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if (!checkULen(username)) {
-        return false;
-    }
-    else if (!checkPLen(password)) {
-        return false;
-    }
-    else {
-        // Perform login authentication here
         var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
-        xhr.open("POST", "../php/login_data.php", true);   //true for asynchronous 
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) { //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
+        xhr.open("GET", "../php/index.php?floor=" + floor, true);   //true for asynchronous, pass floor number to update database 
+
+        xhr.onreadystatechange = function () { //this is where we say what we want to do once we connect with php
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
                 var response = xhr.responseText;
-                if  (response.includes("Login successful!")) {
-                    alert("valid username or password");
-                    loginForm.style.display = "none";
-                    elevatorContainer.style.display = "block";
-                } else {
-                    alert("Invalid username or password");
-                }
-                // Process the response from the PHP file
-                console.log(response);
             }
         };
-        var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password); //encodeURIComponent is a JS function used to encode special characters with their percent-encoded values to avoid errors
-        xhr.send(data);
-    }
-}
+        xhr.send();
 
-function checkULen(uname) {
-    if (uname.length < 7) {
-        alert("Username too short");
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-function checkPLen(pword) {
-    if (pword.length < 7) {
-        alert("Password too short");
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-function goToFloor(floor) {
-    if (doorDisplay.innerText != "Door Status: Open") {
         var targetFloorPosition = (floor - 1) * floorHeight;
         var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
         var distance = Math.abs(currentPosition - targetFloorPosition);
-        var duration = distance * 1; // Adjust the duration as desired
+        var duration = distance * 5; // Adjust the duration as desired
 
         animateElevator(currentPosition, targetFloorPosition, duration);
-        floorDisplay.innerText = "Floor: " + floor;
-        currentFloor = floor;
+        currentFloor = floor; // Update the current floor with the selected floor
+    }
+    else {
+        alert("Door is open");
     }
 }
+
+function showFloor() {
+    var xmlhttpShow = new XMLHttpRequest();
+    xmlhttpShow.open("GET", "../php/showfloor.php?q=", true);
+    xmlhttpShow.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("floor").innerHTML = this.responseText;
+        }
+    };
+    xmlhttpShow.send();
+}
+
+
+function showFloorInterval() {    // Automatic updates every 250 ms
+    setInterval(showFloor, 250);
+}
+
+window.addEventListener('load', function () { showFloorInterval() }, false);  // Button updates 250 ms after pressed
 
 //Elevator Door Animation
 function openDoor() {
@@ -90,17 +64,17 @@ function closeDoor() {
     elevDisplay.src = "../images/Elevator.png";
 }
 
-
-
 //Elevator Movement animation
 function animateElevator(start, target, duration) {
     var startTime = null;
+    var currentPosition = start;
 
     function step(timestamp) {
         if (!startTime) startTime = timestamp;
         var progress = timestamp - startTime;
         var position = easeInOutQuad(progress, start, target - start, duration);
         elevator.style.top = position + "px";
+        currentPosition = position;
 
         if (progress < duration) {
             window.requestAnimationFrame(step);
@@ -108,6 +82,9 @@ function animateElevator(start, target, duration) {
     }
 
     window.requestAnimationFrame(step);
+
+    // Update the elevator's final position after the animation completes
+    elevator.style.top = target + "px";
 }
 
 // Easing function for smooth animation
@@ -119,15 +96,13 @@ function easeInOutQuad(t, b, c, d) {
 }
 
 function moveDown() {
-    if (currentFloor < 3 && doorDisplay.innerText != "Door Status: Open") {
-        goToFloor(currentFloor + 1);
+    if (currentFloor < 3) {
+        goToFloor(event, currentFloor + 1);
     }
 }
 
 function moveUp() {
-    if (currentFloor > 1 && doorDisplay.innerText != "Door Status: Open") {
-        goToFloor(currentFloor - 1);
+    if (currentFloor > 1) {
+        goToFloor(event, currentFloor - 1);
     }
 }
-
-window.addEventListener('load', onLoad, false);
