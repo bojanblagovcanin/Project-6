@@ -127,7 +127,7 @@ function startInterval() {
   intervalId = setInterval(function () {
     const randomFloor = getRandomNumber();
     goToFloor(null, randomFloor);
-  }, 3000);
+  }, 8000);
 }
 
 function stopInterval() {
