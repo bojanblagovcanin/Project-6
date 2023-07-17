@@ -131,3 +131,11 @@ h1 {
     position: relative;
     
 }
+
+#music-container {
+    position: fixed;
+    bottom: 10px; /* Adjust this value to set the distance from the bottom */
+    left: 10px;   /* Adjust this value to set the distance from the left */
+    border-radius: 12px;
+    z-index: 9999; /* Ensure it's on top of other content */
+}
