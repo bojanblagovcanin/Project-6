@@ -2,5 +2,5 @@
     session_start(); 
     session_destroy(); 
 
-    echo "You have been logged out successfully";
+    header('Location: ../html/login.html');
 ?>

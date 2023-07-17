@@ -1,6 +1,6 @@
 <?php
 session_start();
-$authenticated = FALSE;
+
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the form data
@@ -16,7 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->rowCount() > 0) {
         // Rows were returned, login is successful
         echo "Login successful!";
-        $authenticated = TRUE;
+        $_SESSION['username'] = $username;
+        $_SESSION['logged_in'] = true; // Set the session variable
+       
     } else {
         // No rows were returned, login is invalid
         echo "Invalid username or password!";
@@ -24,11 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Close the database connection
     $conn = null;
-    if($authenticated) {
-        $_SESSION['username'] = $username;  
-        
-    } else {
-        echo "invalid login, Try again"; 
-    }
+    
+    
 }
 ?>

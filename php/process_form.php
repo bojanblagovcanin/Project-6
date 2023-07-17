@@ -12,15 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fac_or_student = $_POST['fac_or_student'];
     $comments = $_POST['comments'];
 
-    // Example: Display the form data
-    echo "First Name: " . $firstname . "<br>";
-    echo "Last Name: " . $lastname . "<br>";
-    echo "Username: " . $username . "<br>";
-    echo "password: " . $password . "<br>";
-    echo "Email: " . $email . "<br>";
-    echo "Date of Birth: " . $birthday . "<br>";
-    echo "Request Type: " . $fac_or_student . "<br>";
-    echo "Comments: " . $comments . "<br>";
 
     // Connect to the database 
     $conn = new PDO('mysql:host=localhost;dbname=login_system', 'master', '123');
@@ -32,9 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Close the database connection
     $conn = null;
 
-    // Redirect the user to the login page or display a success message
-    // Example:
-    header('../html/ElevatorDemo.html');
+    header('../html/index.html');
     exit();
 }
 ?>
