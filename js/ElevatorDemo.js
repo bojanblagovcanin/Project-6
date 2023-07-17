@@ -11,9 +11,15 @@ let previousNumber = null;
 let boolsatmode = false;
 let intervalId = null;
 
+function playDingSound() {
+  const dingSound = document.getElementById('dingSound');
+  dingSound.play();
+}
+
 function goToFloor(event, floor) {
   if (event) {
     event.preventDefault();
+    
   }
 
   if (doorDisplay.innerText != "Door Status: Open") {
@@ -38,6 +44,7 @@ function goToFloor(event, floor) {
   } else {
     alert("Door is open");
   }
+  playDingSound();
 }
 
 function showFloor() {
