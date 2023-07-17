@@ -4,7 +4,7 @@ const doorDisplay = document.getElementById("door");
 const elevDisplay = document.getElementById("elevator");
 const elevatorContainer = document.getElementById("elevator-container");
 
-let currentFloor = 1;
+
 const floorHeight = 100;
 
 let previousNumber = null;
