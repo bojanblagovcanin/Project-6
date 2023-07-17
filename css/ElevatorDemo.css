@@ -110,3 +110,24 @@ h1 {
 #inside-panel button {
     margin: 5px;
 }
+
+#satmaode {
+    width: 210px;
+    height: 210px;
+
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    
+    
+}
+
+#robotsatmode{
+    position: relative;
+    
+}
+
+#sleeprobot{
+    position: relative;
+    
+}
