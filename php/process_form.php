@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Close the database connection
     $conn = null;
 
-    header('../html/index.html');
-    exit();
+    header('Location: ../html/login.html');
+   
 }
 ?>

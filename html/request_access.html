@@ -10,57 +10,73 @@
 </head>
 
 <body>
-    
-    <h1>Sign-up Page</h1>
-    <form action="../php/process_form.php" method="post">
-        <fieldset>
-            <legend>Contact Details</legend>
-            <div>
-                <label for="fname" class="text_label">First Name:</label>
-                <input id="fname" class="text_input" type="text" name="firstname" required />
-            </div>
-            <div>
-                <label for="lname" class="text_label">Last Name:</label>
-                <input id="lname" class="text_input" type="text" name="lastname" required />
-            </div>
-            <div>
-                <label for="username" class="text_label">Username:</label>
-                <input id="username" class="text_input" type="text" name="username" required />
-            </div>
-            <div>
-                <label for="password" class="text_label">Password:</label>
-                <input id="password" class="text_input" type="text" name="password" required />
-            </div>
-            <div>
-                <label for="email" class="text_label">Email:</label>
-                <input id="email" class="text_input" type="email" name="email" required />
-            </div>
-            <div>
-                <label for="bdate" class="text_label">Date of Birth:</label>
-                <input id="bdate" class="text_input" type="date" name="birthday" required />
-            </div>
+    <div class="container mt-4">
+        <h1>Sign-up Page</h1>
+        <form action="../php/process_form.php" method="post">
+            <fieldset class="form-group border p-3">
+                <legend>Contact Details</legend>
+                <div class="form-group">
+                    <label for="fname" class="form-label">First Name:</label>
+                    <input id="fname" class="form-control" type="text" name="firstname" onkeyup="checkfirstnameInput()"
+                        required />
+                    <div class="invalid-feedback"> Please enter a First name. </div>
+                </div>
+                <div class="form-group">
+                    <label for="lname" class="form-label">Last Name:</label>
+                    <input id="lname" class="form-control" type="text" name="lastname" onkeyup="checklastnameInput()"
+                        required />
+                    <div class="invalid-feedback"> Please enter a Last name. </div>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-label">Username:</label>
+                    <input id="username" class="form-control" type="text" name="username" onkeyup="checkusernameInput()"
+                        required />
+                    <div class="invalid-feedback"> Please enter a Username greater then 6 chars. </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password:</label>
+                    <input id="password" class="form-control" type="password" name="password"
+                        onkeyup="checkpasswordInput()" required />
+                    <div class="invalid-feedback"> Please enter a Password greater then 6 chars,have 1 capital letter and 1 number. </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email:</label>
+                    <input id="email" class="form-control" type="email" name="email" onkeyup="checkemailInput()"
+                        required />
+                    <div class="invalid-feedback"> Please enter a Valid Email. </div>
+                </div>
+                <div class="form-group">
+                    <label for="bdate" class="form-label">Date of Birth:</label>
+                    <input id="bdate" class="form-control" type="date" name="birthday" required />
+                    <div class="invalid-feedback"> Please enter a Valid Date. </div>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Request type:</span>
+                    <div class="form-check">
+                        <input id="faculty" class="form-check-input" type="radio" name="fac_or_student" value="faculty"
+                            required />
+                        <label for="faculty" class="form-check-label">Faculty</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="student" class="form-check-input" type="radio" name="fac_or_student" value="student"
+                            required />
+                        <label for="student" class="form-check-label">Student</label>
+                    </div>
+                </div>
+            </fieldset>
 
-            <div>
-                <span class="text_label">Request type:</span>
-                <input id="faculty" type="radio" name="fac_or_student" value="faculty" required />
-                <label for="faculty">Faculty</label>
-                <br>
-                <input id="student" type="radio" name="fac_or_student" value="student" required />
-                <label for="student">Student</label>
+            <div class="form-group">
+                <p id="feedback"></p>
+                <p>Tell us a bit about yourself</p>
+                <textarea name="comments" class="textarea" placeholder="Please add your comments here..."
+                    required></textarea>
+                <input id="submit" type="submit" value="Submit Request" class="btn btn-primary" />
             </div>
-        </fieldset>
+        </form>
+    </div>
 
-        <div>
-            <p id="feedback"></p>
-            <p>Tell us a bit about yourself</p>
-            <textarea name="comments" class="text" placeholder="Please add your comments here..."
-                required></textarea><br />
-            <input id="submit" type="submit" onclick="testFill()" value="Submit Request" />
-        </div>
-    </form>
-    <script src="../js/requestaccess.js"></script>
-    <script src="../js/navbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/checkinput.js"></script>
 
 </body>
 <footer>

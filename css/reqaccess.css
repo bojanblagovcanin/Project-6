@@ -37,18 +37,21 @@ a:hover {
   text-decoration: underline;
 }
 
-.text_label {
-  /* total width = 100+10+2 (border) = 112 */
-  float: left;
-  width: 100px;
-  text-align: right;
+.form-label {
   padding: 0px 10px 0px 0px;
   font-weight: bold;
 }
 
-.text_input {
-  /* total width = 200+10+2 (border) = 212*/
+.form-control {
+ 
   width: 200px;
+  text-align: left;
+  padding: 0px 0px 0px 10px;
+}
+
+.form-group {
+ 
+  width: 400px;
   text-align: left;
   padding: 0px 0px 0px 10px;
 }
@@ -62,7 +65,7 @@ footer {
 }
 
 textarea {
-  width: 334px;
+  width: 400px;
   height: 150px;
   color: #707172;
   font-family: Arial, Verdana, sans-serif;

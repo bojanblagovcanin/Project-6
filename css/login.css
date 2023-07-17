@@ -1,16 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-}
-
-h1 {
-    text-align: center;
-}
-
-#login-form{
-    text-align: center;
-    margin-top: 100px;
-}
-
 .hover-image:hover {
     content: url("../images/requestaccess-hover.png");
   }
@@ -18,3 +5,9 @@ h1 {
   .active-image:active {
     content: url("../images/requestaccess-active.png");
   }
+
+  .login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
