@@ -15,7 +15,30 @@ function playDingSound() {
   const dingSound = document.getElementById('dingSound');
   dingSound.play();
 }
+function playdoorOpeningSound()
+{
+  const openingSound = document.getElementById('doorOpening');
+  doorOpening.play();
+}
 
+function playdoorClosingSound()
+{
+  const closingsound = document.getElementById('doorClosing');
+  doorClosing.play();
+
+}
+
+function goingUpSound()
+{
+  const upSound = getElementById('goingUp');
+  goingUp.play();
+}
+
+function goingDownSound()
+{
+  const downSound = getElementById('goingDown');
+  goingDown.play();
+}
 function goToFloor(event, floor) {
   if (event) {
     event.preventDefault();
@@ -104,13 +127,13 @@ function easeInOutQuad(t, b, c, d) {
 
 function moveDown() {
   if (currentFloor < 3) {
-    goToFloor(event, currentFloor + 1);
+    goToFloor(currentFloor + 1);
   }
 }
 
 function moveUp() {
   if (currentFloor > 1) {
-    goToFloor(event, currentFloor - 1);
+    goToFloor(currentFloor - 1);
   }
 }
 

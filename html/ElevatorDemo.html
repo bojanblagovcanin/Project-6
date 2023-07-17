@@ -15,6 +15,10 @@
     <div id="navbarContainer"></div>
     <!-- Elevator Control -->
     <audio id="dingSound" src="../sounds/ding.mp3"></audio>
+    <audio id="goingDown" src="../sounds/goingdown.mp3"></audio>
+    <audio id="goingUp" src="../sounds/goingup.mp3"></audio>
+    <audio id="doorClosing" src="../sounds/doorclosing.mp3"></audio>
+    <audio id="doorOpening" src="../sounds/dooropening.mp3"></audio>
     <div id="elevator-container">
         <h1>Elevator Simulator</h1>
         <div id="floor"></div>
@@ -27,9 +31,9 @@
             <button id="floor1"> <img src="../images/Button1.png" width="50" height="50" onclick="goToFloor(event, 1), playDingSound()">
             </button>
         </form>
-        <img class="floor1-button" id="floor1-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+        <img class="floor1-button" id="floor1-open" onclick="openDoor(), playdoorOpeningSound()" src="../images/OpenDoor.png" width="50"
             height="50"></img>
-        <img class="floor1-button" id="floor1-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+        <img class="floor1-button" id="floor1-close" onclick="closeDoor(), playdoorClosingSound()" src="../images/CloseDoor.png" width="50"
             height="50"></img>
 
         <!--Floor 2 Controls-->
@@ -37,9 +41,9 @@
             <button id="floor2"> <img src="../images/Button2.png" width="50" height="50" onclick="goToFloor(event, 2), playDingSound()">
             </button>
         </form>
-        <img class="floor2-button" id="floor2-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+        <img class="floor2-button" id="floor2-open" onclick="openDoor(), playdoorOpeningSound()" src="../images/OpenDoor.png" width="50"
             height="50"></img>
-        <img class="floor2-button" id="floor2-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+        <img class="floor2-button" id="floor2-close" onclick="closeDoor(), playdoorClosingSound()" src="../images/CloseDoor.png" width="50"
             height="50"></img>
 
         <!--Floor 3 Controls-->
@@ -47,19 +51,19 @@
             <button id="floor3"> <img src="../images/Button3.png" width="50" height="50" onclick="goToFloor(event, 3), playDingSound()">
             </button>
         </form>
-        <img class="floor3-button" id="floor3-open" onclick="openDoor()" src="../images/OpenDoor.png" width="50"
+        <img class="floor3-button" id="floor3-open" onclick="openDoor(), playdoorOpeningSound()" src="../images/OpenDoor.png" width="50"
             height="50"></img>
-        <img class="floor3-button" id="floor3-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="50"
+        <img class="floor3-button" id="floor3-close" onclick="closeDoor(), playdoorClosingSound()" src="../images/CloseDoor.png" width="50"
             height="50"></img>
     </div>
 
     <div id="inside-panel">
-        <img id="UpArrow" onclick="moveUp()" src="../images/ArrowUp.png" width="75" height="75"></img>
-        <img id="DownArrow" onclick="moveDown()" src="../images/ArrowDown.png" width="75" height="75"></img>
+        <img id="UpArrow" onclick="moveUp(), goingUpSound()" src="../images/ArrowUp.png" width="75" height="75"></img>
+        <img id="DownArrow" onclick="moveDown(), goingDownSound()" src="../images/ArrowDown.png" width="75" height="75"></img>
         <br>
-        <img class="open-button" id="inside-open" onclick="openDoor()" src="../images/OpenDoor.png" width="75"
+        <img class="open-button" id="inside-open" onclick="openDoor(), playdoorOpeningSound()" src="../images/OpenDoor.png" width="75"
             height="75"></img>
-        <img class="close-button" id="inside-close" onclick="closeDoor()" src="../images/CloseDoor.png" width="75"
+        <img class="close-button" id="inside-close" onclick="closeDoor(), playdoorClosingSound()" src="../images/CloseDoor.png" width="75"
             height="75"></img>
     </div>
 
