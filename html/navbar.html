@@ -11,8 +11,8 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-
-      <a class="navbar-brand" href="../html/index.html">Group 3 Website</a>
+      
+      <a class="navbar-brand">Group 3 Website</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,13 +24,16 @@
           <li class="nav-item">
             <a class="nav-link" href="../html/index.html">Home</a>
           </li>
+
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Log Books</a>
+            <a class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Log Books</a>
             <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
               <li><a class="dropdown-item" href="../html/bojanblag_logbook.html">Bojan Logbook</a></li>
               <li><a class="dropdown-item" href="../html/fosterphillips_logbook.html">Foster Logbook</a></li>
               <li><a class="dropdown-item" href="../html/selmanbursal_logbook.html">Selman Logbook</a></li>
             </ul>
+
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../html/about.html">About</a>
@@ -44,9 +47,23 @@
           <li class="nav-item">
             <a class="nav-link" href="../html/plan.html">Project plan</a>
           </li>
+
         </ul>
+        <!-- User section -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">User Settings</a>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="">Profile</a></li>
+              <li><a class="dropdown-item" href="../php/logout.php">Logout</a></li>
+            </ul>
+        </ul>
+
       </div>
+
     </div>
+
   </nav>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>

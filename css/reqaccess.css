@@ -1,81 +1,76 @@
 /* Reset default styles */
 
-  
-  /* Body styles */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  /* Header styles */
-  
-  h1 {
-    font-size: 48px;
-    background-color: bisque;
-    color: #56c2c2;
-    margin-bottom: 10px;
-  }
-  
-  /* Main content styles */
-  
-  h2 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-  
-  a {
-    color: #0066cc;
-    text-decoration: none;
-  }
-  
-  a:hover {
 
-    text-decoration: underline;
-  }
-
-  
-  /* Footer styles */
-  footer {
-    background-color: #333;
-    padding: 20px;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .text_label {						/* total width = 100+10+2 (border) = 112 */
-	float: left;
-	width: 100px;
-	text-align: right;
-	padding: 0px 10px 0px 0px;
-	font-weight: bold;
-	}
-.text_input {				 		/* total width = 200+10+2 (border) = 212*/	
-	width: 200px;
-	text-align: left;
-	padding: 0px 0px 0px 10px;
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-div { padding: 5px 0px 5px 0px;	/* total width = 112 + 162 = 324 */
-	  width: 324px;}
+/* Header styles */
 
-fieldset {padding: 5px;		/* total width = 324+5+5 (padding)= 334 */
-		  width: 334px;
+h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+/* Main content styles */
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.form-label {
+  padding: 0px 10px 0px 0px;
+  font-weight: bold;
+}
+
+.form-control {
+ 
+  width: 200px;
+  text-align: left;
+  padding: 0px 0px 0px 10px;
+}
+
+.form-group {
+ 
+  width: 400px;
+  text-align: left;
+  padding: 0px 0px 0px 10px;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
 }
 
 textarea {
-	width: 334px;
-	height: 150px;
-	color: #707172;
-	font-family: Arial, Verdana, sans-serif;
-	background-image: url("../images/textlogo.png");
-	background-position: bottom left;
-	background-size: 50%;
-	background-repeat: no-repeat;
+  width: 400px;
+  height: 150px;
+  color: #707172;
+  font-family: Arial, Verdana, sans-serif;
+  background-image: url("../images/textlogo.png");
+  background-position: bottom left;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }

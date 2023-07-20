@@ -1,108 +1,176 @@
-var elevator = document.getElementById("elevator");
-var floorDisplay = document.getElementById("floor");
-var doorDisplay = document.getElementById("door");
-var elevDisplay = document.getElementById("elevator");
-var elevatorContainer = document.getElementById("elevator-container");
+const elevator = document.getElementById("elevator");
+const floorDisplay = document.getElementById("floor");
+const doorDisplay = document.getElementById("door");
+const elevDisplay = document.getElementById("elevator");
+const elevatorContainer = document.getElementById("elevator-container");
 
-var currentFloor = 1;
-var floorHeight = 100;
 
+const floorHeight = 100;
+
+let previousNumber = null;
+let boolsatmode = false;
+let intervalId = null;
+
+function playDingSound() {
+  const dingSound = document.getElementById('dingSound');
+  dingSound.play();
+}
+function playdoorOpeningSound()
+{
+  const openingSound = document.getElementById('doorOpening');
+  doorOpening.play();
+}
+
+function playdoorClosingSound()
+{
+  const closingsound = document.getElementById('doorClosing');
+  doorClosing.play();
+
+}
+
+function goingUpSound()
+{
+  const upSound = getElementById('goingUp');
+  goingUp.play();
+}
+
+function goingDownSound()
+{
+  const downSound = getElementById('goingDown');
+  goingDown.play();
+}
 function goToFloor(event, floor) {
-    event.preventDefault(); // Prevent the default form submission behavior
-    if (doorDisplay.innerText != "Door Status: Open") {
+  if (event) {
+    event.preventDefault();
+    
+  }
 
-        var xhr = new XMLHttpRequest();             //XMLHttpRequest object allows you to send HTTP requests from JavaScript without reloading the entire web page
-        xhr.open("GET", "../php/index.php?floor=" + floor, true);   //true for asynchronous, pass floor number to update database 
+  if (doorDisplay.innerText != "Door Status: Open") {
+    const xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open("GET", "../php/index.php?floor=" + floor, true);
 
-        xhr.onreadystatechange = function () { //this is where we say what we want to do once we connect with php
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                //value 4 indicates that the request has completed and the response is ready. value 200 Represents the HTTP status code of the response.
-                var response = xhr.responseText;
-            }
-        };
-        xhr.send();
+    xmlHttpRequest.onreadystatechange = function () {
+      if (xmlHttpRequest.readyState === 4 && xmlHttpRequest.status === 200) {
+        const serverResponse = xmlHttpRequest.responseText;
+      }
+    };
 
-        var targetFloorPosition = (floor - 1) * floorHeight;
-        var currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
-        var distance = Math.abs(currentPosition - targetFloorPosition);
-        var duration = distance * 5; // Adjust the duration as desired
+    xmlHttpRequest.send();
 
-        animateElevator(currentPosition, targetFloorPosition, duration);
-        currentFloor = floor; // Update the current floor with the selected floor
-    }
-    else {
-        alert("Door is open");
-    }
+    const targetFloorPosition = (floor - 1) * floorHeight;
+    const currentPosition = parseInt(getComputedStyle(elevator).top) || 0;
+    const distance = Math.abs(currentPosition - targetFloorPosition);
+    const duration = distance * 5;
+
+    animateElevator(currentPosition, targetFloorPosition, duration);
+    currentFloor = floor;
+  } else {
+    alert("Door is open");
+  }
+  playDingSound();
 }
 
 function showFloor() {
-    var xmlhttpShow = new XMLHttpRequest();
-    xmlhttpShow.open("GET", "../php/showfloor.php?q=", true);
-    xmlhttpShow.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("floor").innerHTML = this.responseText;
-        }
-    };
-    xmlhttpShow.send();
+  const xmlhttpShow = new XMLHttpRequest();
+  xmlhttpShow.open("GET", "../php/showfloor.php?q=", true);
+  xmlhttpShow.onreadystatechange = function () {
+    if (xmlhttpShow.readyState === 4 && xmlhttpShow.status === 200) {
+      floorDisplay.innerHTML = xmlhttpShow.responseText;
+    }
+  };
+  xmlhttpShow.send();
 }
 
-
-function showFloorInterval() {    // Automatic updates every 250 ms
-    setInterval(showFloor, 250);
+function showFloorInterval() {
+  setInterval(showFloor, 250);
 }
 
-window.addEventListener('load', function () { showFloorInterval() }, false);  // Button updates 250 ms after pressed
+window.addEventListener("load", showFloorInterval, false);
 
-//Elevator Door Animation
 function openDoor() {
-    doorDisplay.innerText = "Door Status: Open";
-    elevDisplay.src = "../images/OpenElevator.png";
+  doorDisplay.innerText = "Door Status: Open";
+  elevDisplay.src = "../images/OpenElevator.png";
 }
 
 function closeDoor() {
-    doorDisplay.innerText = "Door Status: Closed";
-    elevDisplay.src = "../images/Elevator.png";
+  doorDisplay.innerText = "Door Status: Closed";
+  elevDisplay.src = "../images/Elevator.png";
 }
 
-//Elevator Movement animation
 function animateElevator(start, target, duration) {
-    var startTime = null;
-    var currentPosition = start;
+  let startTime = null;
+  let currentPosition = start;
 
-    function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        var progress = timestamp - startTime;
-        var position = easeInOutQuad(progress, start, target - start, duration);
-        elevator.style.top = position + "px";
-        currentPosition = position;
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = timestamp - startTime;
+    const position = easeInOutQuad(progress, start, target - start, duration);
+    elevator.style.top = position + "px";
+    currentPosition = position;
 
-        if (progress < duration) {
-            window.requestAnimationFrame(step);
-        }
+    if (progress < duration) {
+      window.requestAnimationFrame(step);
     }
+  }
 
-    window.requestAnimationFrame(step);
+  window.requestAnimationFrame(step);
 
-    // Update the elevator's final position after the animation completes
-    elevator.style.top = target + "px";
+  elevator.style.top = target + "px";
 }
 
-// Easing function for smooth animation
 function easeInOutQuad(t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
-    t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
+  t /= d / 2;
+  if (t < 1) return (c / 2) * t * t + b;
+  t--;
+  return (-c / 2) * (t * (t - 2) - 1) + b;
 }
 
 function moveDown() {
-    if (currentFloor < 3) {
-        goToFloor(event, currentFloor + 1);
-    }
+  if (currentFloor < 3) {
+    goToFloor(currentFloor + 1);
+  }
 }
 
 function moveUp() {
-    if (currentFloor > 1) {
-        goToFloor(event, currentFloor - 1);
-    }
+  if (currentFloor > 1) {
+    goToFloor(currentFloor - 1);
+  }
+}
+
+function satmode() {
+  const image = document.getElementById("sleeprobot");
+
+  if (!boolsatmode && image.style.display === "block") {
+    boolsatmode = true;
+    image.style.display = "none";
+    console.log("true");
+    startInterval();
+  } else {
+    boolsatmode = false;
+    image.style.display = "block";
+    console.log("false");
+    stopInterval();
+  }
+}
+
+function startInterval() {
+  intervalId = setInterval(function () {
+    const randomFloor = getRandomNumber();
+    goToFloor(null, randomFloor);
+  }, 8000);
+}
+
+function stopInterval() {
+  clearInterval(intervalId);
+}
+
+function getRandomNumber() {
+  let randomNumber;
+
+  do {
+    randomNumber = Math.floor(Math.random() * 3) + 1;
+  } while (randomNumber === previousNumber);
+
+  previousNumber = randomNumber;
+  return randomNumber;
 }

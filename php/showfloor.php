@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 
 // get the q parameter from URL
 $q = $_REQUEST["q"];        // In this case $q == "" empty string

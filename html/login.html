@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    
+
+    <div class="login-container">
+        <form action="../php/login_data.php" method="post" target="_blank"></form>
+
+            <fieldset class="form-group border p-3">
+                <legend class="w-auto">Login</legend>
+
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username..." name="username"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password..." name="password"
+                        required>
+                </div>
+                <br>
+                <button onclick="login()">Login</button>
+                <br>
+                
+                   
+                
+            </fieldset>
+            
+            <a href="../html/request_access.html" class="request-button">
+                <img src="../images/requestaccess.png" alt="Request Access" width='180px' height='50px'
+                    class="hover-image active-image rounded-corners">
+            </a>
+    </div>
+
+    <script src="../js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
