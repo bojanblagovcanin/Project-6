@@ -9,6 +9,7 @@ var hoursData = [0, 1, 2, 3, 4, 5];
 document.addEventListener('DOMContentLoaded', function() {
     
     //chartDraw();
+    //chartDraw2();
     getData();
     //chartWeekDraw(hoursData);
 });
@@ -33,7 +34,8 @@ function getData()
         floorsData = jsonData.floor;
         weeksData = jsonData.week;
 
-        chartWeekDraw(hoursData);
+        chartDraw(weeksData, hoursData);
+        //chartWeekDraw(hoursData);
         //console.log(jsondata);
     }
   };
@@ -58,7 +60,30 @@ function chartWeekDraw(data)
 }
 
 
-function chartDraw()
+function chartDraw(dataX, dataY)
+{
+  
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dataX,
+        datasets: [{
+          label: 'Hour Accessed',
+          data: dataX,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+}
+
+function chartDraw2()
 {
   
     new Chart(ctx, {
