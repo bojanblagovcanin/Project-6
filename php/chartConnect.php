@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
     // Connect to the database 
     //echo "Connecting to Database: <br>";
     $conn = new PDO('mysql:host=localhost;dbname=floor_log', 'admin123', 'password');
@@ -11,14 +12,15 @@
     if ($rows->rowCount() > 0) {
         // Rows were returned, login is successful
         //echo "Data Successful <br>";
-        
+        $i = 0;
         foreach($rows as $row)
         {
             //var_dump($row);
             //echo $row['id'] . "|" . $row['nodeID'] . "|" . $row['floor'] . "|" . $row['weekday'] . "|" . $row['hour'];
-            $week[$row['id']] = $row['weekday'];
-            $floor[$row['id']] = $row['floor'];
-            $hour[$row['id']] = $row['hour'];
+            $week[$i] = $row['weekday'];
+            $floor[$i] = $row['floor'];
+            $hour[$i] = $row['hour'];
+            $i++;
             
             //echo "<br>";    
         }
@@ -33,6 +35,7 @@
         //header('Content-Type: application/json');
         echo json_encode($fullData);
         
+        //echo json_encode($week);
        
     } else {
         // No rows were returned, login is invalid

@@ -4,7 +4,7 @@ const tempdata = document.getElementById('Status');
 const fulldata = document.getElementById('printData');
 var received = null;
 //const jsonData = null;
-var hoursData = null;
+var hoursData = [0, 1, 2, 3, 4, 5];
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -27,12 +27,13 @@ function getData()
         var jsonData = JSON.parse(received);
         tempdata.innerHTML = "Received Data";
 
-       // tempdata.innerHTML = jsonData.hour[4];
+        console.log(jsonData);
+
         hoursData = jsonData.hour;
         floorsData = jsonData.floor;
         weeksData = jsonData.week;
 
-        //chartWeekDraw(hoursData);
+        chartWeekDraw(hoursData);
         //console.log(jsondata);
     }
   };
@@ -41,21 +42,18 @@ function getData()
 
 function chartWeekDraw(data)
 {
-    tempdata.innerHTML = "replaced";
+    tempdata.innerHTML = "Replaced";
     //fulldata.innerHTML = "<p>first paragraph<p>";
     //var html = data[1];
+    
     var html = '';
-    for(var i = 0; i<200; i++)
+    console.log(data.length);
+    for(var i = 1; i<data.length; i++)
     {
-        html += '<p>' + data[i] + '<p>';
+        html += '\n<p>' + data[i] + '<p><br>';
     }
 
-    /*var html = '';
-
-    data.forEach(function(itm) {
-            html += '<p>' + itm + '</p>';
-    });*/
-    tempdata.innerHTML = "should be replca";
+    tempdata.innerHTML = "Data Encoded";
     fulldata.innerHTML = html;
 }
 
