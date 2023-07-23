@@ -18,7 +18,8 @@ session_start();
         echo "Data Successful <br>";
         foreach($rows as $row)
         {
-            var_dump($row);
+            //var_dump($row);
+            echo $row['id'] . "|" . $row['nodeID'] . "|" . $row['floor'] . "|" . $row['weekday'] . "|" . $row['hour'];
             echo "<br>";
         }
        
