@@ -7,36 +7,65 @@ var hoursData = null;
 var floorsData = null;
 var weeksData = null;
 
-document.addEventListener('DOMContentLoaded', function() {
-    getData();
+var sortedhours =  null;
+
+document.addEventListener('DOMContentLoaded', function () {
+  getData();
+  
 });
 
-function getData()
-{
-    // Use AJAX to fetch data from PHP endpoint
-    const xmlhttpShow = new XMLHttpRequest();
-    xmlhttpShow.open("GET", "../php/chartConnect.php?q=", true);
-    xmlhttpShow.onreadystatechange = function () {
+
+
+
+
+function getData() {
+  // Use AJAX to fetch data from PHP endpoint
+  const xmlhttpShow = new XMLHttpRequest();
+  xmlhttpShow.open("GET", "../php/chartConnect.php?q=", true);
+  xmlhttpShow.onreadystatechange = function () {
     if (xmlhttpShow.readyState === 4 && xmlhttpShow.status === 200) {
-        tempdata.innerHTML = "Receiving Data";
-        received = xmlhttpShow.responseText;
-        console.log(received);
-        
-        var jsonData = JSON.parse(received);
-        tempdata.innerHTML = "Received Data";
+      tempdata.innerHTML = "Receiving Data";
+      received = xmlhttpShow.responseText;
+      //console.log(received);
 
-        console.log(jsonData);
+      var jsonData = JSON.parse(received);
+      tempdata.innerHTML = "Received Data";
 
-        hoursData = jsonData.hour;
-        floorsData = jsonData.floor;
-        weeksData = jsonData.week;
+      //console.log(jsonData);
 
-        chartDraw(weeksData, hoursData);
+      hoursData = jsonData.hour;
+      floorsData = jsonData.floor;
+      weeksData = jsonData.week;
+      console.log(count(floorsData));
+      
+
+
+      //chartDraw(weeksData, hoursData);
     }
   };
   xmlhttpShow.send();
 }
 
+function count(data)
+{
+  var maxvalue = 0;
+  for(var i = 0; i<data.length; i++)
+  {
+      if(maxvalue < data[i])
+      {
+        maxvalue = data[i];
+      }
+  }
+
+  var newArray = Array(maxvalue + 1).fill(0);
+  for(var i = 0; i<data.length; i++)
+  {
+      newArray[data[i]]++;
+  }
+  return newArray;
+}
+
+/*
 function chartWeekDraw(data)
 {
     //tempdata.innerHTML = "Replaced";
@@ -51,31 +80,30 @@ function chartWeekDraw(data)
     tempdata.innerHTML = "Data Encoded";
     fulldata.innerHTML = html;
 }
+*/
 
+function chartDraw(dataX, dataY) {
 
-function chartDraw(dataX, dataY)
-{
-  
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: dataX,
-        datasets: [{
-          label: 'Hour Accessed',
-          data: dataX,
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: dataX,
+      datasets: [{
+        label: 'Hour Accessed',
+        data: dataX,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
         }
       }
-    });
+    }
+  });
 }
-
+/*
 function chartDraw2()
 {
   
@@ -97,4 +125,4 @@ function chartDraw2()
         }
       }
     });
-}
+}*/
