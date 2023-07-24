@@ -84,7 +84,12 @@ function count(data)
       }
   }
 
-  var newArray = Array(maxvalue + 1).fill(0);
+  //var newArray = Array(maxvalue + 1).fill(0);
+  var newArray;
+  for(var i = 0; i<23; i++)
+  {
+    newArray[i] = 0;
+  }
   for(var i = 0; i<data.length; i++)
   {
       newArray[data[i]]++;
