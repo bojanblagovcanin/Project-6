@@ -92,11 +92,13 @@ window.addEventListener("load", showFloorInterval, false);
 function openDoor() {
   doorDisplay.innerText = "Door Status: Open";
   elevDisplay.src = "../images/OpenElevator.png";
+  playdoorOpeningSound();
 }
 
 function closeDoor() {
   doorDisplay.innerText = "Door Status: Closed";
   elevDisplay.src = "../images/Elevator.png";
+  playdoorClosingSound();
 }
 
 function animateElevator(start, target, duration) {
@@ -131,12 +133,14 @@ function moveDown() {
   if (currentFloor < 3) {
     goToFloor(event, currentFloor + 1);
   }
+  goingDownSound();
 }
 
 function moveUp() {
   if (currentFloor > 1) {
     goToFloor(event, currentFloor - 1);
   }
+  goingUpSound();
 }
 
 function satmode() {
