@@ -1,5 +1,13 @@
 
 const ctx = document.getElementById('hourlyFrequencyChartDescription');
+const sun = document.getElementById('sundayChart');
+const mon = document.getElementById('mondayChart');
+const chew = document.getElementById('chewsdayChart');
+const wed = document.getElementById('wednesdayChart');
+const thur = document.getElementById('thursdayChart');
+const fry = document.getElementById('fridayChart');
+const sat = document.getElementById('saturdayChart');
+
 const tempdata = document.getElementById('Status');
 const fulldata = document.getElementById('printData');
 var received = null;
@@ -35,10 +43,20 @@ function getData() {
 
       var hourCnt = count(hoursData);
       console.log(hourCnt);
+
+      var sunCnt = count()
       
 
 
-      chartDraw(hourCnt);
+      chartDraw(hourCnt, ctx);
+      chartDraw(hourCnt, sun);
+      chartDraw(hourCnt, mon);
+      chartDraw(hourCnt, chew);
+      chartDraw(hourCnt, wed);
+      chartDraw(hourCnt, thur);
+      chartDraw(hourCnt, fry);
+      chartDraw(hourCnt, sat);
+
     }
   };
   xmlhttpShow.send();
@@ -65,26 +83,11 @@ function count(data)
   return newArray;
 }
 
-/*
-function chartWeekDraw(data)
-{
-    //tempdata.innerHTML = "Replaced";
-    
-    var html = '';
-    console.log(data.length);
-    for(var i = 1; i<data.length; i++)
-    {
-        html += '\n<p>' + data[i] + '<p><br>';
-    }
 
-    tempdata.innerHTML = "Data Encoded";
-    fulldata.innerHTML = html;
-}
-*/
+//Draw selmans stupid little graphs
+function chartDraw(dataX, chartWhich) {
 
-function chartDraw(dataX) {
-
-  new Chart(ctx, {
+  new Chart(chartWhich, {
     type: 'bar',
     data: {
       labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -103,43 +106,4 @@ function chartDraw(dataX) {
     }
   });
 }
-/*
-function chartDraw2()
-{
-  
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-}*/
 
-/*
-function chartWeekDraw(data)
-{
-    //tempdata.innerHTML = "Replaced";
-    
-    var html = '';
-    console.log(data.length);
-    for(var i = 1; i<data.length; i++)
-    {
-        html += '\n<p>' + data[i] + '<p><br>';
-    }
-
-    tempdata.innerHTML = "Data Encoded";
-    fulldata.innerHTML = html;
-}
-*/
