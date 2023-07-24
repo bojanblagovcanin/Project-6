@@ -20,11 +20,9 @@ function getData() {
     if (xmlhttpShow.readyState === 4 && xmlhttpShow.status === 200) {
       tempdata.innerHTML = "Receiving Data";
       received = xmlhttpShow.responseText;
-      //console.log(received);
 
       var jsonData = JSON.parse(received);
       tempdata.innerHTML = "Received Data";
-
 
       //console.log(jsonData);
 
@@ -34,14 +32,13 @@ function getData() {
       floorsData = jsonData.floor;
       weeksData = jsonData.week;
 
-      var maxVl = maxValue(hoursData);
-      var hoursCnt = count(hoursData);
 
-      console.log(hoursCnt);
+      var hourCnt = count(hoursData);
+      console.log(hourCnt);
       
 
 
-      chartDraw(hoursCnt);
+      chartDraw(hourCnt);
     }
   };
   xmlhttpShow.send();
@@ -60,25 +57,12 @@ function count(data)
       }
   }
 
-  var newArray = Array(maxValue + 1).fill(0);
+  var newArray = Array(maxvalue + 1).fill(0);
   for(var i = 0; i<data.length; i++)
   {
       newArray[data[i]]++;
   }
   return newArray;
-}
-
-function maxValue(data)
-{
-  var maxvalue = 0;
-  for(var i = 0; i<data.length; i++)
-  {
-      if(maxvalue < data[i])
-      {
-        maxvalue = data[i];
-      }
-  }
-  return maxValue;
 }
 
 /*
@@ -142,3 +126,20 @@ function chartDraw2()
       }
     });
 }*/
+
+/*
+function chartWeekDraw(data)
+{
+    //tempdata.innerHTML = "Replaced";
+    
+    var html = '';
+    console.log(data.length);
+    for(var i = 1; i<data.length; i++)
+    {
+        html += '\n<p>' + data[i] + '<p><br>';
+    }
+
+    tempdata.innerHTML = "Data Encoded";
+    fulldata.innerHTML = html;
+}
+*/
