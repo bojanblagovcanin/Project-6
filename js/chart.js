@@ -44,19 +44,27 @@ function getData() {
       var hourCnt = count(hoursData);
       console.log(hourCnt);
 
-      var sunCnt = count()
+      var sunCnt = countWeek(hoursData, weeksData, 1);
+      var monCnt = countWeek(hoursData, weeksData, 2);
+      var chewCnt = countWeek(hoursData, weeksData, 3);
+      var wedCnt = countWeek(hoursData, weeksData, 4);
+      var thurCnt = countWeek(hoursData, weeksData, 5);
+      var fryCnt = countWeek(hoursData, weeksData, 6);
+      var satCnt = countWeek(hoursData, weeksData, 7);
+
       
 
 
       chartDraw(hourCnt, ctx);
-      chartDraw(hourCnt, sun);
-      chartDraw(hourCnt, mon);
-      chartDraw(hourCnt, chew);
-      chartDraw(hourCnt, wed);
-      chartDraw(hourCnt, thur);
-      chartDraw(hourCnt, fry);
-      chartDraw(hourCnt, sat);
-
+      
+      chartDrawLine(sunCnt, sun);
+      chartDrawLine(monCnt, mon);
+      chartDrawLine(chewCnt, chew);
+      chartDrawLine(wedCnt, wed);
+      chartDrawLine(thurCnt, thur);
+      chartDrawLine(fryCnt, fry);
+      chartDrawLine(satCnt, sat);
+      
     }
   };
   xmlhttpShow.send();
@@ -83,12 +91,59 @@ function count(data)
   return newArray;
 }
 
+function countWeek(data, dataFilter, dataSelec)
+{
+  //var maxvalue = maxValue(data);
+
+  var maxvalue = 0;
+  for(var i = 0; i<data.length; i++)
+  {
+      if(maxvalue < data[i])
+      {
+        maxvalue = data[i];
+      }
+  }
+
+  var newArray = Array(maxvalue + 1).fill(0);
+  for(var i = 0; i<data.length; i++)
+  {
+      if(dataFilter[i] == dataSelec)
+      {
+        newArray[data[i]]++;
+      }
+      
+  }
+  return newArray;
+}
+
 
 //Draw selmans stupid little graphs
 function chartDraw(dataX, chartWhich) {
 
   new Chart(chartWhich, {
     type: 'bar',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+      datasets: [{
+        label: '# Times Accessed',
+        data: dataX,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+function chartDrawLine(dataX, chartWhich) {
+
+  new Chart(chartWhich, {
+    type: 'line',
     data: {
       labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
       datasets: [{
