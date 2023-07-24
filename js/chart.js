@@ -18,7 +18,7 @@ var weeksData = null;
 
 document.addEventListener('DOMContentLoaded', function () {
   getData();
-  
+
 });
 
 function getData() {
@@ -33,8 +33,8 @@ function getData() {
       var jsonData = JSON.parse(received);
       tempdata.innerHTML = "Received Data";
 
-      //console.log(jsonData);
-
+      console.log(jsonData);
+      //please fix
 
       //Data Received:
       hoursData = jsonData.hour;
@@ -53,11 +53,11 @@ function getData() {
       var fryCnt = countWeek(hoursData, weeksData, 6);
       var satCnt = countWeek(hoursData, weeksData, 7);
 
-      
+
 
 
       chartDraw(hourCnt, ctx);
-      
+
       chartDrawLine(sunCnt, sun);
       chartDrawLine(monCnt, mon);
       chartDrawLine(chewCnt, chew);
@@ -65,34 +65,30 @@ function getData() {
       chartDrawLine(thurCnt, thur);
       chartDrawLine(fryCnt, fry);
       chartDrawLine(satCnt, sat);
-      
+
     }
   };
   xmlhttpShow.send();
 }
 
-function count(data)
-{
+function count(data) {
   //var maxvalue = maxValue(data);
 
   var maxvalue = 0;
-  for(var i = 0; i<data.length; i++)
-  {
-      if(maxvalue < data[i])
-      {
-        maxvalue = data[i];
-      }
+  for (var i = 0; i < data.length; i++) {
+    if (maxvalue < data[i]) {
+      maxvalue = data[i];
+    }
   }
 
   //var newArray = Array(maxvalue + 1).fill(0);
-  
+
   var newArray = [];
   for(var i = 0; i<= 23; i++)
   {
     newArray[i] = 0;
   }
   
-  //console.log(data);
   for(var i = 0; i<data.length; i++)
   {
       newArray[data[i]]++;
@@ -100,27 +96,22 @@ function count(data)
   return newArray;
 }
 
-function countWeek(data, dataFilter, dataSelec)
-{
+function countWeek(data, dataFilter, dataSelec) {
   //var maxvalue = maxValue(data);
 
   var maxvalue = 0;
-  for(var i = 0; i<data.length; i++)
-  {
-      if(maxvalue < data[i])
-      {
-        maxvalue = data[i];
-      }
+  for (var i = 0; i < data.length; i++) {
+    if (maxvalue < data[i]) {
+      maxvalue = data[i];
+    }
   }
 
   var newArray = Array(maxvalue + 1).fill(0);
-  for(var i = 0; i<data.length; i++)
-  {
-      if(dataFilter[i] == dataSelec)
-      {
-        newArray[data[i]]++;
-      }
-      
+  for (var i = 0; i < data.length; i++) {
+    if (dataFilter[i] == dataSelec) {
+      newArray[data[i]]++;
+    }
+
   }
   return newArray;
 }
