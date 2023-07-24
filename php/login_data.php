@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Connect to the database 
-    $conn = new PDO('mysql:host=localhost;dbname=login_system', 'master', '123');
+    $conn = new PDO('mysql:host=localhost;dbname=login_system', 'ese', 'ese');
 
     $stmt = $conn->prepare('SELECT username, password FROM users WHERE username = :username AND password = :password');
     $stmt->execute(['username' => $username, 'password' => $password]);
