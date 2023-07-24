@@ -13,10 +13,6 @@ let intervalId = null;
 
 let currentFloor = null;
 
-function playDingSound() {
-  const dingSound = document.getElementById('dingSound');
-  dingSound.play();
-}
 function playdoorOpeningSound()
 {
   const openingSound = document.getElementById('doorOpening');
@@ -69,7 +65,7 @@ function goToFloor(event, floor) {
   } else {
     alert("Door is open");
   }
-  playDingSound();
+  
 }
 
 function showFloor() {
