@@ -1,5 +1,6 @@
 
 const ctx = document.getElementById('hourlyFrequencyChartDescription');
+//git update
 const sun = document.getElementById('sundayChart');
 const mon = document.getElementById('mondayChart');
 const chew = document.getElementById('chewsdayChart');
