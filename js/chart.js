@@ -1,5 +1,5 @@
 
-const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('hourlyFrequencyChartDescription');
 const tempdata = document.getElementById('Status');
 const fulldata = document.getElementById('printData');
 var received = null;
