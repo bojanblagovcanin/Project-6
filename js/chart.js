@@ -3,15 +3,12 @@ const ctx = document.getElementById('myChart');
 const tempdata = document.getElementById('Status');
 const fulldata = document.getElementById('printData');
 var received = null;
-//const jsonData = null;
-var hoursData = [0, 1, 2, 3, 4, 5];
+var hoursData = null;
+var floorsData = null;
+var weeksData = null;
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-    //chartDraw();
-    //chartDraw2();
     getData();
-    //chartWeekDraw(hoursData);
 });
 
 function getData()
@@ -35,8 +32,6 @@ function getData()
         weeksData = jsonData.week;
 
         chartDraw(weeksData, hoursData);
-        //chartWeekDraw(hoursData);
-        //console.log(jsondata);
     }
   };
   xmlhttpShow.send();
@@ -44,9 +39,7 @@ function getData()
 
 function chartWeekDraw(data)
 {
-    tempdata.innerHTML = "Replaced";
-    //fulldata.innerHTML = "<p>first paragraph<p>";
-    //var html = data[1];
+    //tempdata.innerHTML = "Replaced";
     
     var html = '';
     console.log(data.length);
@@ -64,7 +57,7 @@ function chartDraw(dataX, dataY)
 {
   
     new Chart(ctx, {
-      type: 'line',
+      type: 'bar',
       data: {
         labels: dataX,
         datasets: [{
