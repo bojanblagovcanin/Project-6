@@ -7,16 +7,10 @@ var hoursData = null;
 var floorsData = null;
 var weeksData = null;
 
-var sortedhours =  null;
-
 document.addEventListener('DOMContentLoaded', function () {
   getData();
   
 });
-
-
-
-
 
 function getData() {
   // Use AJAX to fetch data from PHP endpoint
@@ -31,16 +25,23 @@ function getData() {
       var jsonData = JSON.parse(received);
       tempdata.innerHTML = "Received Data";
 
+
       //console.log(jsonData);
 
+
+      //Data Received:
       hoursData = jsonData.hour;
       floorsData = jsonData.floor;
       weeksData = jsonData.week;
-      console.log(count(floorsData));
+
+      var maxVl = maxValue(hoursData);
+      var hoursCnt = count(hoursData);
+
+      console.log(hoursCnt);
       
 
 
-      //chartDraw(weeksData, hoursData);
+      chartDraw(hoursCnt);
     }
   };
   xmlhttpShow.send();
@@ -48,6 +49,8 @@ function getData() {
 
 function count(data)
 {
+  //var maxvalue = maxValue(data);
+
   var maxvalue = 0;
   for(var i = 0; i<data.length; i++)
   {
@@ -57,12 +60,25 @@ function count(data)
       }
   }
 
-  var newArray = Array(maxvalue + 1).fill(0);
+  var newArray = Array(maxValue + 1).fill(0);
   for(var i = 0; i<data.length; i++)
   {
       newArray[data[i]]++;
   }
   return newArray;
+}
+
+function maxValue(data)
+{
+  var maxvalue = 0;
+  for(var i = 0; i<data.length; i++)
+  {
+      if(maxvalue < data[i])
+      {
+        maxvalue = data[i];
+      }
+  }
+  return maxValue;
 }
 
 /*
@@ -82,14 +98,14 @@ function chartWeekDraw(data)
 }
 */
 
-function chartDraw(dataX, dataY) {
+function chartDraw(dataX) {
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: dataX,
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
       datasets: [{
-        label: 'Hour Accessed',
+        label: '# Times Accessed',
         data: dataX,
         borderWidth: 1
       }]
