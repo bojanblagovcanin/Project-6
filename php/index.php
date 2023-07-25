@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+require "../html/index.html";
 function update_elevatorNetwork(int $node_ID, int $new_floor = 1): int
 {
     $db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator', 'ese', 'ese');
