@@ -80,7 +80,7 @@ function count(data) {
   //var newArray = Array(maxvalue + 1).fill(0);
 
   var newArray = [];
-  for(var i = 0; i<= 23; i++)
+  for(var i = 0; i< maxvalue; i++)
   {
     newArray[i] = 0;
   }
@@ -102,9 +102,12 @@ function countWeek(data, dataFilter, dataSelec) {
     }
   }
 
-  //var newArray = Array(maxvalue + 1).fill(0);
-
   var newArray = [];
+  for(var i = 0; i < maxvalue; i++)
+  {
+    newArray[i] = 0;
+  }
+
   for (var i = 0; i < data.length; i++) {
     if (dataFilter[i] == dataSelec) {
       newArray[data[i]]++;
