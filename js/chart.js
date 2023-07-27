@@ -44,13 +44,13 @@ function getData() {
       var hourCnt = count(hoursData);
       console.log(hourCnt);
 
-      var sunCnt = countWeek(hoursData, weeksData, 1);
-      var monCnt = countWeek(hoursData, weeksData, 2);
-      var chewCnt = countWeek(hoursData, weeksData, 3);
-      var wedCnt = countWeek(hoursData, weeksData, 4);
-      var thurCnt = countWeek(hoursData, weeksData, 5);
-      var fryCnt = countWeek(hoursData, weeksData, 6);
-      var satCnt = countWeek(hoursData, weeksData, 7);
+      var sunCnt = countWeek(hoursData, weeksData, 7);
+      var monCnt = countWeek(hoursData, weeksData, 1);
+      var chewCnt = countWeek(hoursData, weeksData, 2);
+      var wedCnt = countWeek(hoursData, weeksData, 3);
+      var thurCnt = countWeek(hoursData, weeksData, 4);
+      var fryCnt = countWeek(hoursData, weeksData, 5);
+      var satCnt = countWeek(hoursData, weeksData, 6);
 
       chartDraw(hourCnt, ctx);
 
