@@ -45,7 +45,7 @@ function goToFloor(event, floor) {
 
   if (doorDisplay.innerText != "Door Status: Open") {
     const xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.open("GET", "../php/index.php?floor=" + floor, true);
+    xmlHttpRequest.open("GET", "../php/demo.php?floor=" + floor, true);
 
     xmlHttpRequest.onreadystatechange = function () {
       if (xmlHttpRequest.readyState === 4 && xmlHttpRequest.status === 200) {
