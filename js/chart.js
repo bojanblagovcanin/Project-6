@@ -11,6 +11,7 @@ const sat = document.getElementById('saturdayChart');
 
 const tempdata = document.getElementById('Status');
 const fulldata = document.getElementById('printData');
+
 var received = null;
 var hoursData = null;
 var floorsData = null;
@@ -34,13 +35,11 @@ function getData() {
       tempdata.innerHTML = "Received Data";
 
       console.log(jsonData);
-      //please fix
 
       //Data Received:
       hoursData = jsonData.hour;
       floorsData = jsonData.floor;
       weeksData = jsonData.week;
-
 
       var hourCnt = count(hoursData);
       console.log(hourCnt);
@@ -52,9 +51,6 @@ function getData() {
       var thurCnt = countWeek(hoursData, weeksData, 5);
       var fryCnt = countWeek(hoursData, weeksData, 6);
       var satCnt = countWeek(hoursData, weeksData, 7);
-
-
-
 
       chartDraw(hourCnt, ctx);
 
@@ -106,7 +102,9 @@ function countWeek(data, dataFilter, dataSelec) {
     }
   }
 
-  var newArray = Array(maxvalue + 1).fill(0);
+  //var newArray = Array(maxvalue + 1).fill(0);
+
+  var newArray = [];
   for (var i = 0; i < data.length; i++) {
     if (dataFilter[i] == dataSelec) {
       newArray[data[i]]++;
@@ -117,7 +115,6 @@ function countWeek(data, dataFilter, dataSelec) {
 }
 
 
-//Draw selmans stupid little graphs
 function chartDraw(dataX, chartWhich) {
 
   new Chart(chartWhich, {
