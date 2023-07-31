@@ -27,6 +27,8 @@
 const int HX711_dout = 4; //mcu > HX711 dout pin
 const int HX711_sck = 5; //mcu > HX711 sck pin
 
+const int ledPin = 8; // Change this to the pin number where your LED is connected
+
 //HX711 constructor:
 HX711_ADC LoadCell(HX711_dout, HX711_sck);
 
@@ -38,14 +40,15 @@ void setup() {
   Serial.println();
   Serial.println("Starting...");
 
+  pinMode(ledPin, OUTPUT); // Initialize LED pin as an output
   LoadCell.begin();
   //LoadCell.setReverseOutput(); //uncomment to turn a negative output value to positive
   float calibrationValue; // calibration value (see example file "Calibration.ino")
-  calibrationValue = 696.0; // uncomment this if you want to set the calibration value in the sketch
+  //calibrationValue = 696.0; // uncomment this if you want to set the calibration value in the sketch
 #if defined(ESP8266)|| defined(ESP32)
-  //EEPROM.begin(512); // uncomment this if you use ESP8266/ESP32 and want to fetch the calibration value from eeprom
+  EEPROM.begin(512); // uncomment this if you use ESP8266/ESP32 and want to fetch the calibration value from eeprom
 #endif
-  //EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch the calibration value from eeprom
+  EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch the calibration value from eeprom
 
   unsigned long stabilizingtime = 2000; // preciscion right after power-up can be improved by adding a few seconds of stabilizing time
   boolean _tare = true; //set this to false if you don't want tare to be performed in the next step
@@ -58,6 +61,7 @@ void setup() {
     LoadCell.setCalFactor(calibrationValue); // set calibration value (float)
     Serial.println("Startup is complete");
   }
+  
 }
 
 void loop() {
@@ -75,6 +79,12 @@ void loop() {
       Serial.println(i);
       newDataReady = 0;
       t = millis();
+
+      if (i > 180000.0) {
+        digitalWrite(ledPin, HIGH); // Turn on the LED
+      } else {
+        digitalWrite(ledPin, LOW); // Turn off the LED
+      }
     }
   }
 

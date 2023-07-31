@@ -39,11 +39,11 @@ void setup() {
   Serial.println("Starting...");
 
   float calibrationValue; // calibration value
-  calibrationValue = 696.0; // uncomment this if you want to set this value in the sketch
+  // calibrationValue = 696.0; // uncomment this if you want to set this value in the sketch
 #if defined(ESP8266) || defined(ESP32)
-  //EEPROM.begin(512); // uncomment this if you use ESP8266 and want to fetch the value from eeprom
+  EEPROM.begin(512); // uncomment this if you use ESP8266 and want to fetch the value from eeprom
 #endif
-  //EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch the value from eeprom
+  EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch the value from eeprom
 
   LoadCell.begin();
   //LoadCell.setReverseOutput();

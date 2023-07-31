@@ -30,7 +30,7 @@ const int HX711_sck = 7; //mcu > HX711 sck pin
 //HX711 constructor:
 HX711_ADC LoadCell(HX711_dout, HX711_sck);
 
-const int calVal_calVal_eepromAdress = 0;
+const int calVal_eepromAdress = 0;
 unsigned long t = 0;
 
 void setup() {
@@ -39,11 +39,11 @@ void setup() {
   Serial.println("Starting...");
 
   float calibrationValue; // calibration value
-  calibrationValue = 696.0; // uncomment this if you want to set this value in the sketch
+  //calibrationValue = 696.0; // uncomment this if you want to set this value in the sketch
 #if defined(ESP8266) || defined(ESP32)
-  //EEPROM.begin(512); // uncomment this if you use ESP8266 and want to fetch this value from eeprom
+  EEPROM.begin(512); // uncomment this if you use ESP8266 and want to fetch this value from eeprom
 #endif
-  //EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch this value from eeprom
+  EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch this value from eeprom
 
   LoadCell.begin();
   //LoadCell.setReverseOutput();
