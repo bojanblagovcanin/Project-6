@@ -75,8 +75,8 @@ void loop() {
   if (newDataReady) {
     if (millis() > t + serialPrintInterval) {
       float i = LoadCell.getData();
-      Serial.print("Load_cell output val: ");
-      Serial.println(i);
+      //Serial.print("Load_cell output val: ");
+      //Serial.println(i);
       newDataReady = 0;
       t = millis();
 
